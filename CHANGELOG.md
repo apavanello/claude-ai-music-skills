@@ -16,8 +16,8 @@ This project uses [Conventional Commits](https://conventionalcommits.org/) and [
 - **Removed the `skill-model-updater` skill and the `Claude Model Updater` CI
   workflow** (`.github/workflows/model-updater.yml`; 53 skills total, down from 54).
   Their per-release version-bumping job is obsolete under aliases, and the
-  alias/effort hygiene they would have audited is now enforced by the test suite
-  and the Static Validation CI job.
+  alias/effort hygiene they would have audited is now enforced by the test suite —
+  with the model-alias format additionally checked by the Static Validation CI job.
 - The `model:` field is now **alias-only** — pinned `claude-*` IDs are rejected by
   both the test suite and the Static Validation workflow, so the convention can't
   silently regress.

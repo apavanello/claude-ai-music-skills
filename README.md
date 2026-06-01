@@ -106,7 +106,7 @@ Nothing ships without passing gates:
 
 ### CI/CD
 
-5 GitHub Actions workflows: test suite (2,482 tests), security scanning (bandit + pip-audit), static validation, auto-release from changelog, and PR target enforcement. Dependabot watches pip and Actions versions weekly.
+5 GitHub Actions workflows: test suite (3,773 tests), security scanning (bandit + pip-audit), static validation, auto-release from changelog, and PR target enforcement. Dependabot watches pip and Actions versions weekly.
 
 ---
 
@@ -119,7 +119,7 @@ tools/               Audio mastering, promo videos, sheet music, cloud uploads
 reference/           46+ docs — Suno guides, mastering workflows, genre references
 genres/              72 genre directories with production guides
 templates/           Album, track, artist, research templates
-tests/               2,482 tests across 14 categories
+tests/               3,773 tests across 14 categories
 config/              Example config and setup docs
 ```
 

@@ -527,10 +527,10 @@ _MODEL_TIER_KEYWORDS = ['opus', 'sonnet', 'haiku']
 
 
 def _derive_model_tier(model: str) -> str:
-    """Derive model tier (opus/sonnet/haiku) from a model ID string.
+    """Derive model tier (opus/sonnet/haiku) from a model alias or ID string.
 
     Args:
-        model: Model identifier (e.g., "claude-opus-4-7", "claude-sonnet-4-5-20250929")
+        model: Model alias ("opus"/"sonnet"/"haiku") or full ID (e.g. "claude-opus-4-8").
 
     Returns:
         Lowercase tier string ("opus", "sonnet", "haiku") or "unknown".
