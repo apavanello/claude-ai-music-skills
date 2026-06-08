@@ -80,6 +80,7 @@ See [reference/model-strategy.md](reference/model-strategy.md) for per-skill rat
 
 A Python MCP server exposes 80+ tools for instant state queries, audio analysis, lyrics processing, and database operations. The server is the plugin's nervous system — skills call MCP tools instead of reading files directly, which keeps responses fast and state consistent.
 
+
 Key tool categories:
 - **State management** — album/track lookups, session context, cache rebuild
 - **Lyrics analysis** — syllable counting, readability scoring, rhyme detection, section validation, cross-track repetition
