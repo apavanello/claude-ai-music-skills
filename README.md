@@ -7,6 +7,11 @@ AI music generation workflow for [Suno](https://suno.com). This plugin provides 
 
 ---
 
+## Documentation
+
+- **[USER_GUIDE.md](USER_GUIDE.md)**: Complete step-by-step workflow guide detailing how to use all 53 skills to design, write, QC, generate, and master an album.
+- **[HERMES_AGENT_INSTALL.md](HERMES_AGENT_INSTALL.md)**: Standard installation guide for Hermes Agent.
+
 ## Install (Hermes Agent)
 
 This plugin integrates with [Hermes Agent by Nous Research](https://github.com/NousResearch/hermes-agent) using **Markdown Skills** and an **MCP Server**.
