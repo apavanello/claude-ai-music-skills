@@ -1,4 +1,4 @@
-# Bitwize Music Plugin — Hermes/Antigravity IDE
+# Bitwize Music Plugin — Hermes Agent
 
 AI music generation workflow for [Suno](https://suno.com). This plugin provides 53 skills that turn a conversation into a full album production pipeline — from concept development to release.
 
@@ -7,51 +7,55 @@ AI music generation workflow for [Suno](https://suno.com). This plugin provides 
 
 ---
 
-## Install
+## Install (Hermes Agent)
 
-**For Hermes Agent (by Nous Research):**  
-See [HERMES_AGENT_INSTALL.md](HERMES_AGENT_INSTALL.md) for the correct integration steps.
+This plugin integrates with [Hermes Agent by Nous Research](https://github.com/NousResearch/hermes-agent) using **Markdown Skills** and an **MCP Server**.
 
-**For Antigravity IDE / Gemini Developer Tools:**  
-This plugin is installed at `~/.gemini/config/plugins/bitwize-music-plugin/`.
+### 1. Link the Skills
 
-### MCP Server Setup
+Hermes Agent auto-discovers skills in `~/.hermes/skills/`. Symlink the skills from this repository to your Hermes directory:
 
-
-The plugin includes an MCP server with 80+ tools for state queries, audio analysis, lyrics processing, and database operations. To enable it, add the following to your MCP configuration:
-
-```json
-{
-  "mcpServers": {
-    "bitwize-music-mcp": {
-      "type": "stdio",
-      "command": "${HOME}/.bitwize-music/venv/bin/python3",
-      "args": ["${HOME}/.gemini/config/plugins/bitwize-music-plugin/servers/bitwize-music-server/run.py"]
-    }
-  }
-}
+```bash
+mkdir -p ~/.hermes/skills/music
+# Run from the root of this repository
+ln -sf "$(pwd)/skills/"* ~/.hermes/skills/music/
 ```
 
-### Python Dependencies
+### 2. Set Up Python Environment & Dependencies
+
+The MCP server requires Python dependencies. Create a virtual environment and install dependencies using `uv` (recommended):
 
 ```bash
 # Create unified venv
-python3 -m venv ~/.bitwize-music/venv
+uv venv ~/.bitwize-music/venv
 
-# Install ALL plugin dependencies
-~/.bitwize-music/venv/bin/pip install -r ~/.gemini/config/plugins/bitwize-music-plugin/servers/bitwize-music-server/../../requirements.txt
+# Install dependencies
+uv pip install --python ~/.bitwize-music/venv -r requirements.txt
 
-# Set up document hunter browser (optional)
+# Install Playwright browser for document-hunter (optional)
 ~/.bitwize-music/venv/bin/playwright install chromium
 ```
 
-### First-Time Configuration
+### 3. Configure the MCP Server
+
+Add the MCP server to Hermes Agent using the CLI:
 
 ```bash
-cp ~/.gemini/config/plugins/bitwize-music-plugin/config/config.example.yaml ~/.bitwize-music/config.yaml
+hermes mcp add bitwize-music-mcp \
+  --command ~/.bitwize-music/venv/bin/python \
+  --args "$(pwd)/servers/bitwize-music-server/run.py"
+```
+*(Type `Y` to enable all enquired tools when prompted)*
+
+### 4. First-Time Configuration
+
+Copy the example configuration to the tools directory:
+
+```bash
+cp config/config.example.yaml ~/.bitwize-music/config.yaml
 ```
 
-Edit `~/.bitwize-music/config.yaml` to set your artist name and workspace paths.
+Edit `~/.bitwize-music/config.yaml` to configure your artist name and workspace directories.
 
 ---
 
