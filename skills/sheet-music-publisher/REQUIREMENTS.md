@@ -272,4 +272,4 @@ tools:
 
 **Free trial option**: Use AnthemScore free trial for testing (30 sec/song limit)
 
-**Ready to use**: Once installed, the `/bitwize-music:sheet-music-publisher` skill auto-detects everything.
+**Ready to use**: Once installed, the the `sheet-music-publisher` skill skill auto-detects everything.

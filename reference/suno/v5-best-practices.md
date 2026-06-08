@@ -2,7 +2,7 @@
 
 Comprehensive guide for getting the best results with Suno V5 and V5.5.
 
-> **Related skills**: `/bitwize-music:suno-engineer` (interactive prompting), `/bitwize-music:pronunciation-specialist` (phonetic review)
+> **Related skills**: the `suno-engineer` skill (interactive prompting), the `pronunciation-specialist` skill (phonetic review)
 > **Related docs**: [pronunciation-guide.md](pronunciation-guide.md), [structure-tags.md](structure-tags.md), [voice-tags.md](voice-tags.md), [tips-and-tricks.md](tips-and-tricks.md)
 
 ---
@@ -641,17 +641,17 @@ crisp, warm, bright, deep, spacious
 
 ## Related Skills
 
-- **`/bitwize-music:suno-engineer`** - Technical Suno V5 prompting expert
+- **the `suno-engineer` skill** - Technical Suno V5 prompting expert
   - Uses this guide as reference
   - Constructs style prompts and genre tags
   - Optimizes prompts for best generation results
 
-- **`/bitwize-music:lyric-writer`** - Lyric writing with Suno formatting
+- **the `lyric-writer` skill** - Lyric writing with Suno formatting
   - Automatically formats lyrics with section tags
   - Prepares Suno-ready lyrics boxes
   - Applies pronunciation fixes for Suno
 
-- **`/bitwize-music:lyric-reviewer`** - Pre-generation QC gate
+- **the `lyric-reviewer` skill** - Pre-generation QC gate
   - Verifies lyrics follow Suno best practices
   - Checks section tags and structure
   - Ensures lyrics are ready for generation

@@ -1,18 +1,11 @@
 ---
 name: new-album
 description: Creates a new album with the correct directory structure and templates. Use IMMEDIATELY when the user says 'make a new album' or similar, before any discussion.
-argument-hint: <album-name> <genre>
-model: haiku
-allowed-tools:
-  - Read
-  - Bash
-  - Write
-  - bitwize-music-mcp
 ---
 
 ## Your Task
 
-**Input**: $ARGUMENTS
+**Input**: the user's input
 
 Create a new album directory structure with all required files and templates.
 
@@ -34,9 +27,9 @@ Examples:
 - `protest-songs folk`
 - `the-heist documentary hip-hop`
 
-Valid genres: Any genre that has a directory under `${CLAUDE_PLUGIN_ROOT}/genres/`. Use the slug form (lowercase, hyphenated) — e.g. `deep-house`, `crust-punk`, `k-pop`, `hip-hop`.
+Valid genres: Any genre that has a directory under `../../genres/`. Use the slug form (lowercase, hyphenated) — e.g. `deep-house`, `crust-punk`, `k-pop`, `hip-hop`.
 
-To check if a genre is valid, verify `${CLAUDE_PLUGIN_ROOT}/genres/{genre}/README.md` exists.
+To check if a genre is valid, verify `../../genres/{genre}/README.md` exists.
 
 **Parsing logic:**
 1. If 3 arguments and second is `documentary`: album = arg1, genre = arg3, documentary = true
@@ -86,7 +79,7 @@ Files created:
 
 Next steps:
   Option 1 - Interactive (Recommended):
-    Run /bitwize-music:album-conceptualizer to design your album concept
+    Run the `album-conceptualizer` skill to design your album concept
     through the 7 Planning Phases.
 
   Option 2 - Manual:
@@ -97,7 +90,7 @@ Tip: For OST/soundtrack albums with a mix of vocal and instrumental
 tracks, the album-conceptualizer will ask about the vocal/instrumental
 split per track. Set `instrumental: true` in track frontmatter for
 instrumental tracks — they skip the lyrics workflow and go directly
-to /bitwize-music:suno-engineer.
+to the `suno-engineer.` skill
 ```
 
 ## Error Handling
@@ -124,7 +117,7 @@ Error: Album already exists at {album_path}
 **Templates not found:**
 ```
 Error: Templates not found. Is the plugin installed correctly?
-Expected at: ${CLAUDE_PLUGIN_ROOT}/templates/
+Expected at: ../../templates/
 ```
 
 ---
@@ -154,7 +147,7 @@ Files created:
 
 Next steps:
   Option 1 - Interactive (Recommended):
-    Run /bitwize-music:album-conceptualizer to design your album concept
+    Run the `album-conceptualizer` skill to design your album concept
     through the 7 Planning Phases.
 
   Option 2 - Manual:

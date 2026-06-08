@@ -34,10 +34,10 @@ Note: Audio and content paths both use the mirrored structure with artist and ge
 
 ### Step 1: Use the Import Skill
 
-**Recommended**: Use `/bitwize-music:import-audio` skill:
+**Recommended**: Use the `import-audio` skill skill:
 
 ```
-/bitwize-music:import-audio ~/Downloads/03-t-day-beach.wav sample-album
+the `import-audio` skill ~/Downloads/03-t-day-beach.wav sample-album
 ```
 
 The skill automatically:
@@ -70,7 +70,7 @@ artist:
 
 **Command:**
 ```
-/bitwize-music:import-audio ~/Downloads/03-t-day-beach.wav sample-album
+the `import-audio` skill ~/Downloads/03-t-day-beach.wav sample-album
 ```
 
 **Result:**
@@ -148,7 +148,7 @@ mv ~/Downloads/track.wav ./sample-album/
 
 Correct:
 ```
-/bitwize-music:import-audio ~/Downloads/track.wav sample-album
+the `import-audio` skill ~/Downloads/track.wav sample-album
 ```
 
 **Why it matters:** The skill reads config fresh, ensuring correct paths even after context changes.
@@ -178,7 +178,7 @@ Error: File not found: ~/Downloads/track.wav
 Error: Config not found at ~/.bitwize-music/config.yaml
 ```
 
-**Solution:** Run `/bitwize-music:configure` to set up config.
+**Solution:** Run the `configure` skill to set up config.
 
 ### Destination Already Exists
 
@@ -196,9 +196,9 @@ Warning: File already exists at destination.
 For multiple files from the same album:
 
 ```
-/bitwize-music:import-audio ~/Downloads/01-track.wav sample-album
-/bitwize-music:import-audio ~/Downloads/02-track.wav sample-album
-/bitwize-music:import-audio ~/Downloads/03-track.wav sample-album
+the `import-audio` skill ~/Downloads/01-track.wav sample-album
+the `import-audio` skill ~/Downloads/02-track.wav sample-album
+the `import-audio` skill ~/Downloads/03-track.wav sample-album
 ```
 
 Or tell Claude: "Import all WAV files from Downloads to sample-album album"

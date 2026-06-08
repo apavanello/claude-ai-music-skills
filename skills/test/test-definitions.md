@@ -11,7 +11,7 @@ Glob: config/config.example.yaml
 
 ### TEST: config.example.yaml is valid YAML
 ```bash
-~/.bitwize-music/venv/bin/python3 -c "import yaml; yaml.safe_load(open('${CLAUDE_PLUGIN_ROOT}/config/config.example.yaml'))"
+~/.bitwize-music/venv/bin/python3 -c "import yaml; yaml.safe_load(open('../../config/config.example.yaml'))"
 ```
 
 ### TEST: config.example.yaml has all required sections
@@ -192,7 +192,7 @@ Each skill must appear in README.md skill tables.
 
 ### TEST: /resume skill documented in README (quick win #1)
 Read README.md Skills Reference section.
-Verify `/bitwize-music:resume` appears in the Setup & Maintenance table.
+Verify the `resume` skill appears in the Setup & Maintenance table.
 Verify description includes: "Resume work on an album - finds album, shows status and next steps"
 
 ### TEST: /configure skill has all commands
@@ -279,7 +279,7 @@ These files must exist:
 - `templates/sources.md`
 
 ### TEST: Templates referenced in CLAUDE.md exist
-Search CLAUDE.md for `${CLAUDE_PLUGIN_ROOT}/templates/` references.
+Search CLAUDE.md for `../../templates/` references.
 Each referenced template must exist.
 
 ### TEST: IDEAS.md template uses consistent status values (quick win #4)
@@ -372,7 +372,7 @@ Verify step 1 is loading configuration.
 Verify step 1b is loading overrides (if present).
 Verify step 3 is checking album ideas file.
 Verify it mentions /configure when config missing.
-Verify it mentions /bitwize-music:album-ideas for detailed ideas list.
+Verify it mentions the `album-ideas` skill for detailed ideas list.
 
 ### TEST: Session startup contextual tips system documented
 Read CLAUDE.md "Session Start" section after the 6 status check steps.
@@ -389,7 +389,7 @@ Verify all conditional tip categories are documented:
 Read CLAUDE.md "Session Start" section.
 Verify section exists: "Always show one general productivity tip (rotate randomly):"
 Verify it contains at least 4 different productivity tips.
-Verify tips reference actual skills (e.g., /bitwize-music:resume, /bitwize-music:researcher).
+Verify tips reference actual skills (e.g., the `resume,` skill the `researcher).` skill
 
 ### TEST: Session startup ends with question
 Read CLAUDE.md "Session Start" section.
@@ -398,12 +398,12 @@ Verify final instruction says: "Finally, ask:" followed by "What would you like 
 ### TEST: Contextual tips use correct skill commands
 Read CLAUDE.md session startup tips section.
 Verify all skill references use correct format:
-- `/bitwize-music:tutorial` (not /tutorial)
-- `/bitwize-music:album-ideas` (not /album-ideas)
-- `/bitwize-music:resume` (not /resume)
-- `/bitwize-music:researcher` (not /researcher)
-- `/bitwize-music:pronunciation-specialist` (not /pronunciation-specialist)
-- `/bitwize-music:clipboard` (not /clipboard)
+- the `tutorial` skill (not /tutorial)
+- the `album-ideas` skill (not /album-ideas)
+- the `resume` skill (not /resume)
+- the `researcher` skill (not /researcher)
+- the `pronunciation-specialist` skill (not /pronunciation-specialist)
+- the `clipboard` skill (not /clipboard)
 
 ### TEST: Contextual tips reference overrides path variable
 Read CLAUDE.md session startup tips section.
@@ -458,50 +458,50 @@ Verify it has examples for:
 ### TEST: Suno pronunciation guide has cross-references (quick win #10)
 Read reference/suno/pronunciation-guide.md.
 Verify "## Related Skills" section exists with:
-- /bitwize-music:pronunciation-specialist reference
-- /bitwize-music:lyric-writer reference
-- /bitwize-music:lyric-reviewer reference
+- the `pronunciation-specialist` skill reference
+- the `lyric-writer` skill reference
+- the `lyric-reviewer` skill reference
 Verify "## See Also" section exists with:
-- ${CLAUDE_PLUGIN_ROOT}/reference/suno/v5-best-practices.md reference
-- ${CLAUDE_PLUGIN_ROOT}/reference/suno/structure-tags.md reference
-- ${CLAUDE_PLUGIN_ROOT}/skills/lyric-writer/SKILL.md reference
-- ${CLAUDE_PLUGIN_ROOT}/skills/pronunciation-specialist/SKILL.md reference
+- ../../reference/suno/v5-best-practices.md reference
+- ../../reference/suno/structure-tags.md reference
+- ../../skills/lyric-writer/SKILL.md reference
+- ../../skills/pronunciation-specialist/SKILL.md reference
 
 ### TEST: Suno v5-best-practices has cross-references (quick win #10)
 Read reference/suno/v5-best-practices.md.
 Verify "## Related Skills" section exists with:
-- /bitwize-music:suno-engineer reference
-- /bitwize-music:lyric-writer reference
-- /bitwize-music:lyric-reviewer reference
+- the `suno-engineer` skill reference
+- the `lyric-writer` skill reference
+- the `lyric-reviewer` skill reference
 Verify "## See Also" section exists with:
-- ${CLAUDE_PLUGIN_ROOT}/reference/suno/pronunciation-guide.md reference
-- ${CLAUDE_PLUGIN_ROOT}/reference/suno/structure-tags.md reference
-- ${CLAUDE_PLUGIN_ROOT}/reference/suno/genre-list.md reference
-- ${CLAUDE_PLUGIN_ROOT}/reference/suno/voice-tags.md reference
-- ${CLAUDE_PLUGIN_ROOT}/reference/suno/tips-and-tricks.md reference
-- ${CLAUDE_PLUGIN_ROOT}/skills/suno-engineer/SKILL.md reference
+- ../../reference/suno/pronunciation-guide.md reference
+- ../../reference/suno/structure-tags.md reference
+- ../../reference/suno/genre-list.md reference
+- ../../reference/suno/voice-tags.md reference
+- ../../reference/suno/tips-and-tricks.md reference
+- ../../skills/suno-engineer/SKILL.md reference
 
 ### TEST: Suno structure-tags has cross-references (quick win #10)
 Read reference/suno/structure-tags.md.
 Verify "## Related Skills" section exists with:
-- /bitwize-music:lyric-writer reference
-- /bitwize-music:suno-engineer reference
-- /bitwize-music:lyric-reviewer reference
+- the `lyric-writer` skill reference
+- the `suno-engineer` skill reference
+- the `lyric-reviewer` skill reference
 Verify "## See Also" section exists with:
-- ${CLAUDE_PLUGIN_ROOT}/reference/suno/v5-best-practices.md reference
-- ${CLAUDE_PLUGIN_ROOT}/reference/suno/pronunciation-guide.md reference
-- ${CLAUDE_PLUGIN_ROOT}/reference/suno/voice-tags.md reference
-- ${CLAUDE_PLUGIN_ROOT}/skills/lyric-writer/SKILL.md reference
+- ../../reference/suno/v5-best-practices.md reference
+- ../../reference/suno/pronunciation-guide.md reference
+- ../../reference/suno/voice-tags.md reference
+- ../../skills/lyric-writer/SKILL.md reference
 
 ### TEST: Mastering workflow has cross-references (quick win #10)
 Read reference/mastering/mastering-workflow.md.
 Verify "## Related Skills" section exists with:
-- /bitwize-music:mastering-engineer reference
-- /bitwize-music:release-director reference
+- the `mastering-engineer` skill reference
+- the `release-director` skill reference
 Verify "## See Also" section exists with:
-- ${CLAUDE_PLUGIN_ROOT}/tools/mastering/ scripts listed
-- ${CLAUDE_PLUGIN_ROOT}/reference/workflows/release-procedures.md reference
-- ${CLAUDE_PLUGIN_ROOT}/skills/mastering-engineer/SKILL.md reference
+- ../../tools/mastering/ scripts listed
+- ../../reference/workflows/release-procedures.md reference
+- ../../skills/mastering-engineer/SKILL.md reference
 
 ### TEST: Explicit content word list documented
 Read CLAUDE.md "Explicit Content Guidelines" section.
@@ -848,7 +848,7 @@ Verify it includes:
 
 ### TEST: Sheet music skill in skills table
 Read CLAUDE.md skills table.
-Verify `/bitwize-music:sheet-music-publisher` is listed.
+Verify the `sheet-music-publisher` skill is listed.
 
 ### TEST: Config has sheet_music section
 Read config/config.example.yaml.
@@ -938,14 +938,14 @@ Verify these path variables are used consistently:
 - `{audio_root}`
 - `{documents_root}`
 - `{tools_root}`
-- `${CLAUDE_PLUGIN_ROOT}`
+- `../..`
 
 ### TEST: All internal markdown links valid
 Search for markdown links `[text](path)` where path starts with `/` or `./`.
 Verify target files exist.
 
 ### TEST: plugin.json matches documentation
-Read .claude-plugin/plugin.json.
+Read .claude-pluginplugin management.json.
 Verify `name` and `author.name` match README install command.
 
 ### TEST: .gitignore has required entries

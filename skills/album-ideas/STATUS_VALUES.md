@@ -1,6 +1,6 @@
 # Album Ideas - Status Values
 
-Reference for status tracking in the `/bitwize-music:album-ideas` skill.
+Reference for status tracking in the the `album-ideas` skill skill.
 
 ---
 
@@ -54,7 +54,7 @@ The idea exists only in IDEAS.md. No album directory created yet.
 - No tracks written, no research started
 
 **Move to In Progress when:**
-- You run `/bitwize-music:new-album [title] [genre]`
+- You run the `new-album` skill [title] [genre]`
 - Album directory structure is created
 - Ready to begin the 7 planning phases
 
@@ -90,7 +90,7 @@ Album is finished and released (or intentionally archived without release).
 ### List All Ideas by Status
 
 ```bash
-/bitwize-music:album-ideas list
+the `album-ideas` skill list
 ```
 
 Shows ideas organized by Pending, In Progress, Complete.
@@ -98,15 +98,15 @@ Shows ideas organized by Pending, In Progress, Complete.
 ### Update Status Manually
 
 ```bash
-/bitwize-music:album-ideas status "Album Title" in-progress
-/bitwize-music:album-ideas status "Album Title" complete
-/bitwize-music:album-ideas status "Album Title" pending
+the `album-ideas` skill status "Album Title" in-progress
+the `album-ideas` skill status "Album Title" complete
+the `album-ideas` skill status "Album Title" pending
 ```
 
 ### Check Specific Idea
 
 ```bash
-/bitwize-music:album-ideas show "Album Title"
+the `album-ideas` skill show "Album Title"
 ```
 
 ---
@@ -136,4 +136,4 @@ Status sync between IDEAS.md and album README is manual - the two files track di
 ## See Also
 
 - [SKILL.md](SKILL.md) - Full skill documentation
-- [${CLAUDE_PLUGIN_ROOT}/templates/ideas.md](${CLAUDE_PLUGIN_ROOT}/templates/ideas.md) - IDEAS.md template
+- [../../templates/ideas.md](../../templates/ideas.md) - IDEAS.md template

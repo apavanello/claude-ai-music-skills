@@ -6,7 +6,7 @@ MCP (Model Context Protocol) server for the bitwize-music plugin.
 
 This server provides structured access to albums, tracks, sessions, config, paths, and track content. Instead of shelling out to Python, reading JSON files, or globbing for files, skills call these tools directly for instant structured responses.
 
-The server is registered as `bitwize-music-mcp` in Claude Code. Future MCP tools can be added to this same server.
+The server is registered as `bitwize-music-mcp` in the AI coding assistant. Future MCP tools can be added to this same server.
 
 ## Requirements
 
@@ -46,7 +46,7 @@ pip install --user "mcp[cli]>=1.2.0" pyyaml
 pip install -r requirements.txt
 ```
 
-After installing, **restart Claude Code** to reload the plugin.
+After installing, **restart the AI coding assistant** to reload the plugin.
 
 ## Tools Available (38)
 
@@ -128,7 +128,7 @@ The server reads JSON-RPC requests from stdin and writes responses to stdout.
 ## Architecture
 
 ```
-Claude Code → MCP Protocol → server.py → StateCache → indexer.py → state.json
+the AI coding assistant → MCP Protocol → server.py → StateCache → indexer.py → state.json
 ```
 
 - **StateCache**: In-memory cache with lazy loading and staleness detection

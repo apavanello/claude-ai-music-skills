@@ -1,0 +1,25 @@
+{
+  "name": "bitwize-music-plugin",
+  "version": "0.92.0",
+  "description": "AI music generation workflow for Suno - album concepts, lyrics, prompts, mastering, release",
+  "author": {
+    "name": "bitwize-music-studio"
+  },
+  "repository": "https://github.com/bitwize-music-studio/claude-ai-music-skills",
+  "license": "CC0-1.0",
+  "keywords": [
+    "music",
+    "suno",
+    "lyrics",
+    "album",
+    "mastering",
+    "ai-music",
+    "music-production",
+    "songwriting",
+    "audio-mastering",
+    "music-generation",
+    "lyric-writing",
+    "album-release",
+    "music-workflow"
+  ]
+}

@@ -1,18 +1,6 @@
 ---
 name: promo-writer
 description: Generates platform-specific social media copy from album themes, track concepts, and lyrics. Use when promo/ templates need to be populated before release.
-argument-hint: <album-name> [platform]
-model: sonnet
-effort: high
-prerequisites:
-  - lyric-writer
-allowed-tools:
-  - Read
-  - Edit
-  - Write
-  - Glob
-  - Grep
-  - bitwize-music-mcp
 ---
 
 # Promo Writer Skill
@@ -52,7 +40,7 @@ Between content completion and promo-reviewer. The promo-reviewer polishes what 
 
 **Resolve the album from arguments:**
 
-Use MCP `find_album` with the album name from `$ARGUMENTS`. If no album specified, check `get_session` for last album context.
+Use MCP `find_album` with the album name from `the user's input`. If no album specified, check `get_session` for last album context.
 
 **Verify readiness:**
 - Album must have track concepts written
@@ -252,9 +240,9 @@ After all platforms are written:
 Files written to: {album_path}/promo/
 
 Next steps:
-  1. Review and polish: /bitwize-music:promo-reviewer <album-name>
+  1. Review and polish: the `promo-reviewer` skill <album-name>
   2. Replace [Streaming Link] placeholders with actual URLs when available
-  3. When ready to release: /bitwize-music:release-director <album-name>
+  3. When ready to release: the `release-director` skill <album-name>
 ```
 
 ---

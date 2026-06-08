@@ -135,7 +135,7 @@ echo "test" | clip.exe
 # Then Ctrl+V in any Windows app to verify
 ```
 
-The `/bitwize-music:clipboard` skill auto-detects WSL and uses `clip.exe`.
+The the `clipboard` skill skill auto-detects WSL and uses `clip.exe`.
 
 ### Troubleshooting Clipboard
 

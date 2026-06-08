@@ -103,27 +103,27 @@ Without librosa (fallback):
 
 **Basic (everything):**
 ```
-/bitwize-music:promo-director my-album
+the `promo-director` skill my-album
 ```
 
 **Tracks only:**
 ```
-/bitwize-music:promo-director my-album --tracks-only
+the `promo-director` skill my-album --tracks-only
 ```
 
 **Sampler only:**
 ```
-/bitwize-music:promo-director my-album --sampler-only
+the `promo-director` skill my-album --sampler-only
 ```
 
 **Custom style:**
 ```
-/bitwize-music:promo-director my-album --style neon
+the `promo-director` skill my-album --style neon
 ```
 
 **Custom duration:**
 ```
-/bitwize-music:promo-director my-album --duration 30
+the `promo-director` skill my-album --duration 30
 ```
 
 ## Integration with Other Skills
@@ -137,8 +137,8 @@ After mastering complete:
 ## Mastering Complete
 
 **Next Steps:**
-1. [Optional] Generate promo videos: /bitwize-music:promo-director my-album
-2. Begin release workflow: /bitwize-music:release-director my-album
+1. [Optional] Generate promo videos: the `promo-director` skill my-album
+2. Begin release workflow: the `release-director` skill my-album
 ```
 
 ### Handoff TO
@@ -149,9 +149,9 @@ After promo generation:
 ```
 Promo videos generated successfully.
 
-**Optional:** Upload to cloud storage: /bitwize-music:cloud-uploader my-album
+**Optional:** Upload to cloud storage: the `cloud-uploader` skill my-album
 
-Ready for release workflow: /bitwize-music:release-director my-album
+Ready for release workflow: the `release-director` skill my-album
 ```
 
 ## Future Enhancements

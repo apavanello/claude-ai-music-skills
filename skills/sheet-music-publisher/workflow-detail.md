@@ -297,7 +297,7 @@ Next steps:
   4. [Optional] Share on social media
 
 See publishing guide for distribution instructions:
-  ${CLAUDE_PLUGIN_ROOT}/skills/sheet-music-publisher/publishing-guide.md
+  ../../skills/sheet-music-publisher/publishing-guide.md
 ```
 
 ## Error Handling
@@ -351,7 +351,7 @@ Check:
   2. Audio files in correct location?
   3. Files are .wav format (not .mp3)?
 
-Use /bitwize-music:import-audio to move files if needed.
+Use the `import-audio` skill to move files if needed.
 ```
 
 ### Python Dependencies Missing

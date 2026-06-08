@@ -1,20 +1,11 @@
 ---
 name: configure
 description: Sets up or edits the plugin configuration file interactively. Use on first-time setup, when config is missing, or when the user wants to change settings.
-argument-hint: [setup | edit | show | validate | reset]
-model: sonnet
-effort: low
-allowed-tools:
-  - Read
-  - Write
-  - Bash
-  - AskUserQuestion
-  - Glob
 ---
 
 ## Your Task
 
-**Input**: $ARGUMENTS
+**Input**: the user's input
 
 Route based on argument:
 - `setup` or no argument → Interactive first-time setup
@@ -87,7 +78,7 @@ If user presses Enter (accepts default):
 
 Ask:
 > You can optionally provide a path to a file for tracking album ideas.
-> This is managed by the /bitwize-music:album-ideas skill for brainstorming and planning.
+> This is managed by the the `album-ideas` skill skill for brainstorming and planning.
 >
 > Default: ~/music-projects/IDEAS.md
 >

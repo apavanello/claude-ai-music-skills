@@ -12,7 +12,7 @@ Step-by-step for creating documentary or narrative albums based on real events.
 
 Before you begin:
 
-1. **Standard prerequisites** - Suno account, Claude Code, config file
+1. **Standard prerequisites** - Suno account, the AI coding assistant, config file
 2. **Research topic** - A real event, person, or case you want to document
 3. **Time for verification** - Human review of sources is required
 
@@ -23,7 +23,7 @@ Before you begin:
 ### Step 1: Create Album with Research Templates
 
 ```
-/bitwize-music:new-album my-true-story hip-hop documentary
+the `new-album` skill my-true-story hip-hop documentary
 ```
 
 The `documentary` flag creates additional files:
@@ -69,7 +69,7 @@ This is the critical phase that distinguishes true-story albums.
 ### Step 1: Invoke the Researcher
 
 ```
-/bitwize-music:researcher "your topic keywords"
+the `researcher` skill "your topic keywords"
 ```
 
 The researcher:
@@ -84,13 +84,13 @@ For deep dives, Claude coordinates specialists:
 
 | Topic | Invoke |
 |-------|--------|
-| Court documents | `/bitwize-music:researchers-legal` |
-| DOJ/FBI releases | `/bitwize-music:researchers-gov` |
-| Investigative journalism | `/bitwize-music:researchers-journalism` |
-| SEC filings | `/bitwize-music:researchers-financial` |
-| Security incidents | `/bitwize-music:researchers-security` |
-| Historical events | `/bitwize-music:researchers-historical` |
-| Personal backgrounds | `/bitwize-music:researchers-biographical` |
+| Court documents | the `researchers-legal` skill |
+| DOJ/FBI releases | the `researchers-gov` skill |
+| Investigative journalism | the `researchers-journalism` skill |
+| SEC filings | the `researchers-financial` skill |
+| Security incidents | the `researchers-security` skill |
+| Historical events | the `researchers-historical` skill |
+| Personal backgrounds | the `researchers-biographical` skill |
 
 ### Step 3: Document Everything
 
@@ -189,7 +189,7 @@ After writing, Claude automatically verifies:
 Stop here until:
 - [ ] All tracks have lyrics
 - [ ] All claims verified against sources
-- [ ] `/bitwize-music:lyric-reviewer` passed
+- [ ] the `lyric-reviewer` skill passed
 
 ---
 
@@ -200,7 +200,7 @@ Same as standard album. See [first-album.md](first-album.md#phase-4-suno-generat
 ### True Story Specific Tips
 
 - **Pronunciation critical** - Names must be correct
-- **Run `/bitwize-music:pronunciation-specialist`** on all tracks
+- **Run the `pronunciation-specialist` skill** on all tracks
 - **Phonetic spelling** - Use for all proper nouns
 
 ---
@@ -222,13 +222,13 @@ Additional items:
 ## Complete Workflow Summary
 
 ```
-1. /bitwize-music:new-album name genre documentary
+1. the `new-album` skill name genre documentary
 2. Complete 7 Planning Phases
-3. /bitwize-music:researcher "topic"
+3. the `researcher` skill "topic"
    (Uses specialized researchers as needed)
 4. HUMAN VERIFICATION - You verify all sources
 5. Write lyrics based on verified research
-6. /bitwize-music:lyric-reviewer (verify sources match)
+6. the `lyric-reviewer` skill (verify sources match)
 7. Generate on Suno
 8. Master audio
 9. Create album art
@@ -241,12 +241,12 @@ Additional items:
 
 | Task | Command |
 |------|---------|
-| Start research | `/bitwize-music:researcher "topic"` |
-| Find court docs | `/bitwize-music:researchers-legal` |
-| Find gov releases | `/bitwize-music:researchers-gov` |
-| Find journalism | `/bitwize-music:researchers-journalism` |
-| Verify research | `/bitwize-music:researchers-verifier` |
-| Check pronunciation | `/bitwize-music:pronunciation-specialist` |
+| Start research | the `researcher` skill "topic"` |
+| Find court docs | the `researchers-legal` skill |
+| Find gov releases | the `researchers-gov` skill |
+| Find journalism | the `researchers-journalism` skill |
+| Verify research | the `researchers-verifier` skill |
+| Check pronunciation | the `pronunciation-specialist` skill |
 
 ---
 
@@ -257,7 +257,7 @@ Additional items:
 - Click the URLs, verify quotes, then tell Claude they're verified
 
 **Source not found?**
-- Try `/bitwize-music:document-hunter` for automated search
+- Try the `document-hunter` skill for automated search
 - Check free sources in researcher's `free-sources.md`
 
 **Conflicting sources?**
@@ -267,7 +267,7 @@ Additional items:
 
 **Name pronunciation wrong?**
 - Add to phonetic guide
-- Use `/bitwize-music:pronunciation-specialist`
+- Use the `pronunciation-specialist` skill
 
 ---
 

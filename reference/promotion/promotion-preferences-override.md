@@ -156,7 +156,7 @@ Override the plugin's default promotion settings for this artist/project.
 
 ## Social Media Copy Preferences
 
-These settings are used by `/bitwize-music:promo-writer` when generating social media copy.
+These settings are used by the `promo-writer` skill when generating social media copy.
 
 ### Tone & Voice
 - **Default tone**: casual | professional | hype | mysterious | storytelling
@@ -230,7 +230,7 @@ Before publishing:
 
 ## Usage by Promo Director Skill
 
-The `/bitwize-music:promo-director` skill checks for this file at:
+The the `promo-director` skill skill checks for this file at:
 1. `{overrides}/promotion-preferences.md`
 
 If file exists:

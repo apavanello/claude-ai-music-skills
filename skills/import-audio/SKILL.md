@@ -1,17 +1,11 @@
 ---
 name: import-audio
 description: Moves audio files to the correct album location with proper path structure. Use when the user has downloaded WAV files from Suno or other sources that need to be organized.
-argument-hint: <file-path> <album-name> [track-slug]
-model: haiku
-allowed-tools:
-  - Read
-  - Bash
-  - bitwize-music-mcp
 ---
 
 ## Your Task
 
-**Input**: $ARGUMENTS
+**Input**: the user's input
 
 Import an audio file (WAV, MP3, etc.) to the correct album location based on config.
 

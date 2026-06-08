@@ -21,7 +21,7 @@
 #   cp config/config.example.yaml ~/.bitwize-music/config.yaml
 #   # Edit ~/.bitwize-music/config.yaml with your settings
 #
-# Or use the interactive setup: /bitwize-music:configure
+# Or use the interactive setup: the configure skill
 #
 # WHY ~/.bitwize-music/?
 #   - Survives plugin updates (your config is never overwritten)
@@ -257,7 +257,7 @@ paths:
   # ideas_file [optional]
   # ---------------------------
   # File for tracking album concepts before creating album directories.
-  # Managed by /bitwize-music:album-ideas skill.
+  # Managed by the album-ideas skill skill.
   #
   # Default (if omitted): {content_root}/IDEAS.md
   #
@@ -333,7 +333,7 @@ generation:
   #   soundraw - SoundRaw
   #
   # Each service has dedicated reference docs in /reference/{service}/
-  # and a specialized skill: /bitwize-music:{service}-engineer
+  # and a specialized skill: the {service}-engineer skill
   #
   service: suno
 
@@ -403,7 +403,7 @@ generation:
 # =============================================================================
 # PROMO VIDEOS [optional]
 # =============================================================================
-# Settings for /bitwize-music:promo-director skill.
+# Settings for the promo-director skill skill.
 # Generate 15-second vertical videos (9:16) for social media.
 #
 # REQUIREMENTS:
@@ -475,7 +475,7 @@ generation:
 # =============================================================================
 # SHEET MUSIC [optional]
 # =============================================================================
-# Settings for /bitwize-music:sheet-music-publisher skill.
+# Settings for the sheet-music-publisher skill skill.
 # Convert audio to sheet music and create songbooks.
 #
 # REQUIREMENTS:
@@ -541,7 +541,7 @@ sheet_music:
 # =============================================================================
 # CLOUD STORAGE [optional]
 # =============================================================================
-# Settings for /bitwize-music:cloud-uploader skill.
+# Settings for the cloud-uploader skill skill.
 # Upload promo videos and assets to cloud storage for sharing.
 #
 # SUPPORTED PROVIDERS:

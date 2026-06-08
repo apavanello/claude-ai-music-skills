@@ -1,6 +1,6 @@
 # Promotion Preferences
 
-Customize how `/bitwize-music:promo-writer` generates social media copy for your releases.
+Customize how the `promo-writer` skill generates social media copy for your releases.
 
 ## Tone & Voice
 

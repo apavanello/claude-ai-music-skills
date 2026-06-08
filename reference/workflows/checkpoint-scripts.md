@@ -3,7 +3,7 @@
 This document contains the detailed example messages for workflow checkpoints. CLAUDE.md references these scripts but keeps only triggers and action lists for brevity.
 
 > **Related docs**: [release-procedures.md](release-procedures.md), [error-recovery.md](error-recovery.md)
-> **Related skills**: `/bitwize-music:release-director` (release coordination), `/bitwize-music:validate-album` (structure validation)
+> **Related skills**: the `release-director` skill (release coordination), the `validate-album` skill (structure validation)
 
 ## Ready to Generate Checkpoint
 
@@ -12,7 +12,7 @@ This document contains the detailed example messages for workflow checkpoints. C
 **Required Actions (before presenting to user):**
 1. Review all track statuses — confirm every track has lyrics written
 2. Verify Suno Style Box and Lyrics Box are filled in each track
-3. Run `/bitwize-music:explicit-checker` on all tracks
+3. Run the `explicit-checker` skill on all tracks
 4. Verify phonetic review: pronunciation tables complete, phonetic spellings applied in Suno lyrics
 5. For source-based albums: confirm all sources are `✅ Verified`
 

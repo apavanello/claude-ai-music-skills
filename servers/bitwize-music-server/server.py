@@ -39,8 +39,9 @@ from pathlib import Path
 from typing import Any
 
 # Derive plugin root from environment or file location
-# Check CLAUDE_PLUGIN_ROOT first (standard env var), then PLUGIN_ROOT (legacy), then derive from file
+# Check BITWIZE_PLUGIN_ROOT first (Hermes), then CLAUDE_PLUGIN_ROOT (legacy), then PLUGIN_ROOT (legacy), then derive from file
 PLUGIN_ROOT = Path(
+    os.environ.get("BITWIZE_PLUGIN_ROOT") or
     os.environ.get("CLAUDE_PLUGIN_ROOT") or
     os.environ.get("PLUGIN_ROOT") or
     Path(__file__).resolve().parent.parent.parent
@@ -85,7 +86,7 @@ except ImportError:
     print("     python3 -m venv ~/.bitwize-music/venv", file=sys.stderr)
     print("     ~/.bitwize-music/venv/bin/pip install 'mcp[cli]>=1.2.0' pyyaml", file=sys.stderr)
     print("", file=sys.stderr)
-    print("After installing, restart Claude Code to reload the plugin.", file=sys.stderr)
+    print("After installing, restart the IDE to reload the plugin.", file=sys.stderr)
     print("=" * 70, file=sys.stderr)
     sys.exit(1)
 

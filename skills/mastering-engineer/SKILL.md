@@ -1,31 +1,11 @@
 ---
 name: mastering-engineer
 description: Guides audio mastering for streaming platforms including loudness optimization and tonal balance. Use when the user has approved tracks and wants to master audio files.
-argument-hint: <folder-path or "master for [platform]">
-model: sonnet
-effort: low
-prerequisites:
-  - import-audio
-allowed-tools:
-  - Read
-  - Edit
-  - Write
-  - Grep
-  - Glob
-  - Bash
-  - bitwize-music-mcp
-requirements:
-  python:
-    - matchering
-    - pyloudnorm
-    - scipy
-    - numpy
-    - soundfile
 ---
 
 ## Your Task
 
-**Input**: $ARGUMENTS
+**Input**: the user's input
 
 When invoked with a folder:
 1. Analyze WAV files for loudness, peaks, frequency balance

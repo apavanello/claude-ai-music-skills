@@ -1,18 +1,11 @@
 ---
 name: import-art
 description: Places album art files in the correct audio and content directory locations. Use when the user has generated or downloaded album artwork that needs to be saved.
-argument-hint: <file-path> <album-name>
-model: haiku
-allowed-tools:
-  - Read
-  - Bash
-  - Glob
-  - bitwize-music-mcp
 ---
 
 ## Your Task
 
-**Input**: $ARGUMENTS
+**Input**: the user's input
 
 Import album art to both the audio folder and album content folder.
 

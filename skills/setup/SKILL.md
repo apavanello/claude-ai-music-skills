@@ -1,13 +1,9 @@
 ---
 name: setup
 description: Detects your Python environment and guides you through installing plugin dependencies. Use on first-time setup or when MCP server fails to start.
-argument-hint: <blank for full check | "mcp" | "mastering" | "document-hunter">
-model: haiku
-allowed-tools:
-  - Bash
 ---
 
-Base directory for this skill: ${CLAUDE_PLUGIN_BASE_DIR}
+Base directory for this skill: .
 
 ## Your Task
 
@@ -67,7 +63,7 @@ if [ -f "$VENV_PYTHON" ]; then
     # Check for version drift against requirements.txt
     $VENV_PYTHON -c "
 import importlib.metadata, pathlib
-reqs = pathlib.Path('${CLAUDE_PLUGIN_ROOT}/requirements.txt').read_text()
+reqs = pathlib.Path('../../requirements.txt').read_text()
 stale = []
 for line in reqs.splitlines():
     line = line.split('#')[0].strip()
@@ -106,7 +102,7 @@ All components are installed together in the venv via requirements.txt.
 python3 -m venv ~/.bitwize-music/venv
 
 # Install ALL plugin dependencies
-~/.bitwize-music/venv/bin/pip install -r ${CLAUDE_PLUGIN_ROOT}/requirements.txt
+~/.bitwize-music/venv/bin/pip install -r ../../requirements.txt
 
 # Set up document hunter browser
 ~/.bitwize-music/venv/bin/playwright install chromium
@@ -131,13 +127,13 @@ Present a clear, simple installation guide:
 3. **Installation commands**:
    ```bash
    python3 -m venv ~/.bitwize-music/venv
-   ~/.bitwize-music/venv/bin/pip install -r ${CLAUDE_PLUGIN_ROOT}/requirements.txt
+   ~/.bitwize-music/venv/bin/pip install -r ../../requirements.txt
    ~/.bitwize-music/venv/bin/playwright install chromium
    ```
 4. **After installation**:
-   - Restart Claude Code to reload the plugin
-   - MCP server should show as running in `/plugin` status
-   - Run `/bitwize-music:setup` again to verify
+   - Restart the IDE to reload the plugin
+   - MCP server should show as running in `plugin management` status
+   - Run the `setup` skill again to verify
 
 ---
 
@@ -150,7 +146,7 @@ After user reports they've installed, re-run the checks from Step 2 and confirm:
 ✅ **Cloud uploads**: Ready
 ✅ **Document hunter**: Ready
 
-**Next steps**: Run `/bitwize-music:configure` to set up your workspace paths.
+**Next steps**: Run the `configure` skill to set up your workspace paths.
 
 ---
 
@@ -180,16 +176,16 @@ Run these commands to install all plugin dependencies:
 python3 -m venv ~/.bitwize-music/venv
 
 # Install ALL dependencies
-~/.bitwize-music/venv/bin/pip install -r ${CLAUDE_PLUGIN_ROOT}/requirements.txt
+~/.bitwize-music/venv/bin/pip install -r ../../requirements.txt
 
 # Set up browser
 ~/.bitwize-music/venv/bin/playwright install chromium
 ```
 
 **After installation:**
-1. Restart Claude Code
+1. Restart the IDE
 2. All components will work automatically
-3. Run `/bitwize-music:setup` to verify
+3. Run the `setup` skill to verify
 
 The plugin automatically detects `~/.bitwize-music/venv` — everything just works!
 ```

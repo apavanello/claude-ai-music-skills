@@ -4,7 +4,7 @@ Complete setup instructions for uploading promo videos to Cloudflare R2 or AWS S
 
 ## Overview
 
-The `/bitwize-music:cloud-uploader` skill uploads promo videos to cloud storage for hosting, sharing, and CDN distribution. Both Cloudflare R2 and AWS S3 are supported.
+The the `cloud-uploader` skill skill uploads promo videos to cloud storage for hosting, sharing, and CDN distribution. Both Cloudflare R2 and AWS S3 are supported.
 
 ## Provider Comparison
 
@@ -333,7 +333,7 @@ cloud:
 
 ### "No such file or directory"
 
-1. Generate promo videos first: `/bitwize-music:promo-director album`
+1. Generate promo videos first: the `promo-director` skill album`
 2. Check album path: `{audio_root}/artists/{artist}/albums/{genre}/{album}/`
 3. Verify artist name in config
 
@@ -350,29 +350,29 @@ cloud:
 ### Basic Upload
 
 ```bash
-/bitwize-music:cloud-uploader my-album
+the `cloud-uploader` skill my-album
 ```
 
 ### Preview First (Recommended)
 
 ```bash
-/bitwize-music:cloud-uploader my-album --dry-run
+the `cloud-uploader` skill my-album --dry-run
 ```
 
 ### Upload with Public Access
 
 ```bash
-/bitwize-music:cloud-uploader my-album --public
+the `cloud-uploader` skill my-album --public
 ```
 
 ### Upload Only Specific Content
 
 ```bash
 # Just track promos
-/bitwize-music:cloud-uploader my-album --type promos
+the `cloud-uploader` skill my-album --type promos
 
 # Just album sampler
-/bitwize-music:cloud-uploader my-album --type sampler
+the `cloud-uploader` skill my-album --type sampler
 ```
 
 ---

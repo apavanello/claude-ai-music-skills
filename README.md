@@ -1,161 +1,187 @@
-# Claude AI Music Skills
+# Bitwize Music Plugin — Hermes/Antigravity IDE
 
-I love music but never learned an instrument. AI became the creative outlet that was always out of reach. This project started as a way to go deep on Claude Code plugin architecture, agentic workflows, multi-model orchestration, and MCP tooling. Music was the domain because it was personal.
-
-What it actually does: a Claude Code plugin that turns a conversation into a full album production pipeline. You describe what you want to make, and it handles concept development, lyrics, [Suno](https://suno.com) prompts (an AI music generation platform), audio mastering, and release prep — with quality gates and source verification at every stage.
-
-![Version](https://img.shields.io/github/v/release/bitwize-music-studio/claude-ai-music-skills?label=version&color=blue)
+AI music generation workflow for [Suno](https://suno.com). This plugin provides 53 skills that turn a conversation into a full album production pipeline — from concept development to release.
 
 > [!NOTE]
-> Active development happens on the `develop` branch — `main` only receives tested, stable releases. If you run into issues, [open an issue](https://github.com/bitwize-music-studio/claude-ai-music-skills/issues) or submit a PR.
-
----
-
-## Example Workflow
-
-```
-You:    "Let's make an album about the 2016 Bangladesh Bank heist"
-Claude: Creates album structure, runs 7-phase concept planning
-
-You:    "Start the research"
-Claude: Dispatches legal, financial, and security researchers in parallel
-        Gathers DOJ filings, SWIFT documentation, malware analysis
-        Cross-verifies sources, flags claims that need human review
-
-You:    "Sources look good. Let's write track 1"
-Claude: Drafts lyrics, checks prosody and rhyme schemes
-        Scans for pronunciation risks, suggests phonetic fixes
-        Builds Suno V5 style prompt with genre tags and vocal direction
-
-You:    "Track sounds great, here are the stems"
-Claude: Imports stems from Suno, polishes per-stem
-        Masters to -14 LUFS for streaming
-        Generates promo video and social media copy
-```
-
-Concept to released album. You generate on Suno, everything else happens in the terminal.
+> This is a Hermes plugin port of the [claude-ai-music-skills](https://github.com/bitwize-music-studio/claude-ai-music-skills) project. Original license: CC0 (Public Domain).
 
 ---
 
 ## Install
 
+This plugin is installed at `~/.gemini/config/plugins/bitwize-music-plugin/`.
+
+### MCP Server Setup
+
+
+The plugin includes an MCP server with 80+ tools for state queries, audio analysis, lyrics processing, and database operations. To enable it, add the following to your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "bitwize-music-mcp": {
+      "type": "stdio",
+      "command": "${HOME}/.bitwize-music/venv/bin/python3",
+      "args": ["${HOME}/.gemini/config/plugins/bitwize-music-plugin/servers/bitwize-music-server/run.py"]
+    }
+  }
+}
+```
+
+### Python Dependencies
+
 ```bash
-/plugin marketplace add bitwize-music-studio/claude-ai-music-skills
-/plugin install bitwize-music@claude-ai-music-skills
+# Create unified venv
+python3 -m venv ~/.bitwize-music/venv
+
+# Install ALL plugin dependencies
+~/.bitwize-music/venv/bin/pip install -r ~/.gemini/config/plugins/bitwize-music-plugin/servers/bitwize-music-server/../../requirements.txt
+
+# Set up document hunter browser (optional)
+~/.bitwize-music/venv/bin/playwright install chromium
 ```
 
-Then run `/bitwize-music:setup` to detect your environment and install dependencies. Run `/bitwize-music:configure` to set your artist name and workspace paths.
+### First-Time Configuration
 
-**Platform**: Linux or macOS (Windows users: use WSL). Python 3.10+ for the MCP server and audio tools.
-
----
-
-## Architecture
-
-This is where the engineering lives. The plugin is a case study in how far you can push Claude Code's plugin system.
-
-### Skill System (53 Skills)
-
-Each skill is a self-contained markdown file with a YAML frontmatter that declares its model, description, and when it should activate. Skills range from simple clipboard operations to multi-step creative workflows. Claude routes to skills automatically based on context, or you invoke them directly with `/bitwize-music:<name>`.
-
-The lyric-writer knows prosody rules, rhyme scheme analysis, and Suno's pronunciation quirks. The mastering-engineer knows loudness targets per platform and genre-specific EQ curves. The researcher coordinates parallel sub-agents across 10 domain specializations.
-
-See [docs/skills.md](docs/skills.md) for the full reference.
-
-### Multi-Model Orchestration
-
-Skills declare which Claude model they need. Creative work that directly impacts music quality runs on Opus. Coordination and reasoning tasks use Sonnet. Mechanical operations (imports, validation, clipboard) run on Haiku.
-
-| Tier | Model | Skills | Rationale |
-|------|-------|--------|-----------|
-| Creative | Opus 4.8 | 7 | Lyrics, Suno prompts, album concepts, legal/verification research — output quality defines the music |
-| Reasoning | Sonnet 4.6 | 30 | Research coordination, pronunciation analysis, most workflows |
-| Mechanical | Haiku 4.5 | 16 | Imports, validation, clipboard, help — speed over creativity |
-
-This project pushes Claude Code hard — multi-agent research, real-time audio analysis, sub-agent orchestration across model tiers. It works best on the Max plan. The standard Pro plan will hit rate limits during multi-track sessions.
-
-See [reference/model-strategy.md](reference/model-strategy.md) for per-skill rationale.
-
-### MCP Server (80+ Tools)
-
-A Python MCP server exposes 80+ tools for instant state queries, audio analysis, lyrics processing, and database operations. The server is the plugin's nervous system — skills call MCP tools instead of reading files directly, which keeps responses fast and state consistent.
-
-
-Key tool categories:
-- **State management** — album/track lookups, session context, cache rebuild
-- **Lyrics analysis** — syllable counting, readability scoring, rhyme detection, section validation, cross-track repetition
-- **Audio processing** — mastering, stem analysis, QC checks, promo video generation
-- **Database** — tweet/promo content management via PostgreSQL
-
-### Research System
-
-For documentary and true-story albums, the research system coordinates parallel investigation across 10 domain-specific sub-agents. A lead researcher dispatches to specialists (legal, financial, security, government, journalism, etc.), each trained on where to find primary sources in their domain. A verification agent cross-checks all claims before human review.
-
-The full pipeline: gather sources, verify citations, require human sign-off, then — and only then — allow lyrics generation. Every claim in the music traces back to a captured, verified source.
-
-### Quality Gates
-
-Nothing ships without passing gates:
-- **Lyrics**: 13-point checklist (rhyme, prosody, pronunciation, POV consistency, factual accuracy)
-- **Pre-generation**: Sources verified, explicit flags set, style prompt complete, artist names cleared
-- **Audio**: 7-point QC (loudness, clipping, silence, phase, stereo width, frequency balance, dynamic range)
-- **Structure**: Album directory validation, file location checks, content integrity
-
-### Genre Coverage
-
-72 genre directories with production guides, mastering presets, artist deep-dives, and Suno-specific tips. From afrobeats to vaporwave, each genre includes subgenre breakdowns, lyric conventions, and reference artists.
-
-### CI/CD
-
-5 GitHub Actions workflows: test suite (3,773 tests), security scanning (bandit + pip-audit), static validation, auto-release from changelog, and PR target enforcement. Dependabot watches pip and Actions versions weekly.
-
----
-
-## Project Structure
-
-```
-skills/              53 skill definitions (markdown + YAML frontmatter)
-servers/             MCP server (Python, 80+ tools)
-tools/               Audio mastering, promo videos, sheet music, cloud uploads
-reference/           46+ docs — Suno guides, mastering workflows, genre references
-genres/              72 genre directories with production guides
-templates/           Album, track, artist, research templates
-tests/               3,773 tests across 14 categories
-config/              Example config and setup docs
+```bash
+cp ~/.gemini/config/plugins/bitwize-music-plugin/config/config.example.yaml ~/.bitwize-music/config.yaml
 ```
 
----
-
-## Detailed Documentation
-
-| Topic | Location |
-|-------|----------|
-| All 53 skills | [docs/skills.md](docs/skills.md) |
-| Configuration | [docs/configuration.md](docs/configuration.md) |
-| Troubleshooting | [docs/troubleshooting.md](docs/troubleshooting.md) |
-| Changelog | [CHANGELOG.md](CHANGELOG.md) |
-| Contributing | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| Model strategy | [reference/model-strategy.md](reference/model-strategy.md) |
-| Skill decision tree | [reference/SKILL_INDEX.md](reference/SKILL_INDEX.md) |
-| Suno V5 best practices | [reference/suno/v5-best-practices.md](reference/suno/v5-best-practices.md) |
-| The story behind bitwize-music | [bitwizemusic.com/behind-the-music](https://www.bitwizemusic.com/behind-the-music/) |
+Edit `~/.bitwize-music/config.yaml` to set your artist name and workspace paths.
 
 ---
 
-## Contributors
+## Skills (53)
 
-<a href="https://github.com/bitwize-music"><img src="https://images.weserv.nl/?url=github.com/bitwize-music.png&h=60&w=60&fit=cover&mask=circle" width="60" height="60" alt="@bitwize-music"></a>
-<a href="https://github.com/markus-michalski"><img src="https://images.weserv.nl/?url=github.com/markus-michalski.png&h=60&w=60&fit=cover&mask=circle" width="60" height="60" alt="@markus-michalski"></a>
-<a href="https://github.com/zeel2104"><img src="https://images.weserv.nl/?url=github.com/zeel2104.png&h=60&w=60&fit=cover&mask=circle" width="60" height="60" alt="@zeel2104"></a>
-<a href="https://github.com/alijahak"><img src="https://images.weserv.nl/?url=github.com/alijahak.png&h=60&w=60&fit=cover&mask=circle" width="60" height="60" alt="@alijahak"></a>
+Skills are automatically activated by the AI agent based on context. Each skill contains domain expertise for a specific part of the music production workflow.
 
-If you make something with this, I'd genuinely love to hear it — [@bitwizemusic](https://x.com/bitwizemusic) on X, [join the Discord](https://discord.gg/dMURByGF), or [open a discussion](https://github.com/bitwize-music-studio/claude-ai-music-skills/discussions).
+### Album & Track Creation
+| Skill | Description |
+|-------|-------------|
+| `album-ideas` | Track and manage album ideas |
+| `promote-idea` | Convert a Pending idea into a full album |
+| `new-album` | Create new album with directory structure |
+| `album-conceptualizer` | Album concepts and tracklist architecture |
+| `lyric-writer` | Write/review lyrics with professional prosody and rhyme craft |
+| `suno-engineer` | Technical Suno V5/V5.5 prompting and genre selection |
+
+### Research & Sources
+| Skill | Description |
+|-------|-------------|
+| `researcher` | Main research coordinator, fact-checking |
+| `document-hunter` | Automated document search/download |
+| `researchers-legal` | Court documents, indictments |
+| `researchers-gov` | DOJ/FBI/SEC releases |
+| `researchers-tech` | Project histories, changelogs |
+| `researchers-journalism` | Investigative articles |
+| `researchers-security` | Malware analysis, CVEs |
+| `researchers-financial` | SEC filings, market data |
+| `researchers-historical` | Archives, timelines |
+| `researchers-biographical` | Personal backgrounds |
+| `researchers-primary-source` | Tweets, blogs, forums |
+| `researchers-verifier` | Quality control, citation validation |
+
+### Quality Control
+| Skill | Description |
+|-------|-------------|
+| `lyric-reviewer` | Pre-generation QC gate (14-point checklist) |
+| `lyric-refiner` | Post-writing multi-pass refinement |
+| `pronunciation-specialist` | Scan for pronunciation risks |
+| `explicit-checker` | Verify explicit content flags |
+| `plagiarism-checker` | Check lyrics for phrases matching existing songs |
+| `voice-checker` | Detect AI-written patterns in lyrics and prose |
+| `pre-generation-check` | Final pre-generation checkpoint (6 gates) |
+| `validate-album` | Validate album structure and paths |
+
+### Production & Release
+| Skill | Description |
+|-------|-------------|
+| `album-art-director` | Visual concepts and AI art prompts |
+| `mix-engineer` | Audio polishing, fixing Suno artifacts |
+| `mastering-engineer` | Audio mastering guidance |
+| `promo-director` | Generate promo videos for social media |
+| `promo-writer` | Platform-specific social media copy |
+| `promo-reviewer` | Review and quality-check promo content |
+| `cloud-uploader` | Upload promo videos to Cloudflare R2 or AWS S3 |
+| `sheet-music-publisher` | Convert audio to sheet music |
+| `release-director` | Release coordination and distribution |
+
+### File Management & Workflow
+| Skill | Description |
+|-------|-------------|
+| `import-track` | Move track .md files to album location |
+| `import-audio` | Move audio files to album location |
+| `import-art` | Place album art in correct locations |
+| `clipboard` | Copy track lyrics/prompts to clipboard |
+| `rename` | Rename albums or tracks |
+| `session-start` | Run session startup procedure |
+| `resume` | Find an album and show status with next steps |
+| `next-step` | Get recommended next action |
+| `album-dashboard` | Visual album progress dashboard |
+
+### System & Maintenance
+| Skill | Description |
+|-------|-------------|
+| `setup` | Detect environment and install dependencies |
+| `configure` | Edit plugin configuration |
+| `health-check` | Plugin health checks |
+| `test` | Run automated tests |
+| `tutorial` | Interactive guided album creation |
+| `genre-creator` | Create new genre directories |
+| `verify-sources` | Human source verification gate |
+| `help` | Show available skills and workflows |
+| `about` | About bitwize and this plugin |
 
 ---
 
-## Star History
+## Workflow Overview
 
-[![Star History Chart](https://api.star-history.com/svg?repos=bitwize-music-studio/claude-ai-music-skills&type=Date)](https://star-history.com/#bitwize-music-studio/claude-ai-music-skills&Date)
+```
+Concept → Research → Write (+Suno Prompt) → [Refine] → QC/Verify → Generate → [Polish] → Master → Promo Videos → Release
+```
+
+**Key rules:**
+- Research must complete before writing for source-based content
+- Human source verification is required before generation
+- Audio must be polished before mastering
+
+---
+
+## Configuration & Path Resolution
+
+Config is at: `~/.bitwize-music/config.yaml`
+
+**Path variables** (from config):
+- `{content_root}` = `paths.content_root`
+- `{audio_root}` = `paths.audio_root`
+- `{documents_root}` = `paths.documents_root`
+- `{tools_root}` = `~/.bitwize-music`
+- `[artist]` = `artist.name`
+
+**Mirrored path structure:**
+```
+{content_root}/artists/[artist]/albums/[genre]/[album]/   # Album files (in git)
+{audio_root}/artists/[artist]/albums/[genre]/[album]/     # Mastered audio
+{documents_root}/artists/[artist]/albums/[genre]/[album]/ # PDFs (not in git)
+```
+
+---
+
+## Core Principles
+
+**Be a collaborator, not a yes-man.** Push back when ideas don't work. The goal is good music, not agreement.
+
+**Preserve exact casing and spelling.** "bitwize" stays "bitwize" — never auto-capitalize user-provided names.
+
+**Ask when unsure.** Word choice, style, structure, Suno settings — don't guess.
+
+**Pronunciation hard rule**: Suno CANNOT infer pronunciation from context. When any homograph is found, **ASK** the user which pronunciation is intended.
+
+---
+
+## Genre Coverage
+
+72 genre directories with production guides, mastering presets, artist deep-dives, and Suno-specific tips. Located in `genres/` within the plugin directory.
 
 ---
 
@@ -165,4 +191,4 @@ CC0 — Public Domain. Do whatever you want with it.
 
 ## Disclaimer
 
-Artist and song references in the genre documentation are for educational and reference purposes only. This plugin does not encourage creating infringing content. Users are responsible for ensuring their generated content complies with applicable laws and platform terms of service.
+Artist and song references in the genre documentation are for educational and reference purposes only. This plugin does not encourage creating infringing content.

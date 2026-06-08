@@ -4,7 +4,7 @@ Visual examples and technical details of generated promo videos.
 
 ## Overview
 
-This document shows what to expect when generating promo videos with the `/bitwize-music:promo-director` skill.
+This document shows what to expect when generating promo videos with the the `promo-director` skill skill.
 
 ## Example: Test Album
 

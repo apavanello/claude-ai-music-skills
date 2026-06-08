@@ -1,10 +1,6 @@
 ---
 name: health-check
 description: Runs plugin health checks (venv packages and skill registration). Use when the user asks to check plugin health, verify setup, or troubleshoot missing skills.
-model: haiku
-allowed-tools:
-  - ToolSearch
-  - bitwize-music-mcp
 ---
 
 # Health Check
@@ -42,9 +38,9 @@ VENV [warn]
   Fix: ~/.bitwize-music/venv/bin/pip install -r .../requirements.txt
 
 SKILLS [warn]
-  N missing from Claude Code: skill-a, skill-b
+  N missing from the AI coding assistant: skill-a, skill-b
   N ghost (deleted but cached): skill-c
-  Fix: claude plugin update bitwize-music
+  Fix: update the bitwize-music plugin
 
 For comprehensive diagnostics, run the `diagnose` MCP tool.
 ```
@@ -56,7 +52,7 @@ HEALTH CHECK: FAIL
 
 VENV [fail]
   Venv not found at ~/.bitwize-music/venv
-  Fix: /bitwize-music:setup
+  Fix: the `setup` skill
 ```
 
 ## Remember

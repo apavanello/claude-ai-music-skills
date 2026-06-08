@@ -1,21 +1,11 @@
 ---
 name: plagiarism-checker
 description: Scans lyrics for phrases that may match existing songs using web search and LLM knowledge. Use before release to check for unintentional borrowing.
-argument-hint: <album-name> [track-slug]
-model: sonnet
-effort: high
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - WebSearch
-  - WebFetch
-  - bitwize-music-mcp
 ---
 
 ## Your Task
 
-**Target**: $ARGUMENTS
+**Target**: the user's input
 
 1. Get lyrics for the specified track(s)
 2. Extract distinctive phrases using MCP tool

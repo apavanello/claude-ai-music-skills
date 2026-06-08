@@ -1,24 +1,11 @@
 ---
 name: suno-engineer
 description: Constructs technical Suno V5/V5.5 style prompts, selects genres, and optimizes generation settings. Use when creating or refining Suno prompts for track generation.
-argument-hint: <track-file-path or "create prompt for [concept]">
-model: opus
-effort: max
-prerequisites:
-  - lyric-writer
-allowed-tools:
-  - Read
-  - Edit
-  - Write
-  - Grep
-  - Glob
-  - Bash
-  - bitwize-music-mcp
 ---
 
 ## Your Task
 
-**Input**: $ARGUMENTS
+**Input**: the user's input
 
 When invoked with a track file:
 1. Read the track file
@@ -188,7 +175,7 @@ Suno V5 handles exclusions reliably. Use the **Exclude Styles** section in the t
 
 Only add exclusions when there is a clear reason.
 
-See `${CLAUDE_PLUGIN_ROOT}/reference/suno/v5-best-practices.md` § Negative Prompting for full details.
+See `../../reference/suno/v5-best-practices.md` § Negative Prompting for full details.
 
 ---
 
@@ -209,7 +196,7 @@ Combine up to 3 genres for unique sound:
 - "Country with electronic elements"
 - "Indie folk meets trip-hop"
 
-**See `${CLAUDE_PLUGIN_ROOT}/reference/suno/genre-list.md` for 500+ genres**
+**See `../../reference/suno/genre-list.md` for 500+ genres**
 **See [genre-practices.md](genre-practices.md) for detailed genre strategies**
 
 ---
@@ -230,7 +217,7 @@ Combine up to 3 genres for unique sound:
 
 ### Mispronunciation
 **Fix**: Use phonetic spelling in Lyrics Box
-- See `${CLAUDE_PLUGIN_ROOT}/reference/suno/pronunciation-guide.md`
+- See `../../reference/suno/pronunciation-guide.md`
 
 ### Unwanted Elements in Mix
 **Fix**: Add exclusions to the Exclude Styles section (max 2–4 items, "no [element]" format)
@@ -288,7 +275,7 @@ Mention in style prompt: "Dual vocalists, male and female, trading verses"
 
 ## Reference Files
 
-All detailed Suno documentation in `${CLAUDE_PLUGIN_ROOT}/reference/suno/`:
+All detailed Suno documentation in `../../reference/suno/`:
 
 | File | Contents |
 |------|----------|
@@ -337,7 +324,7 @@ Only mark track as "Generated" when output meets:
 
 Suno actively filters and blocks them. Your prompt will fail or produce unexpected results.
 
-**Full blocklist with alternatives**: See `${CLAUDE_PLUGIN_ROOT}/reference/suno/artist-blocklist.md`
+**Full blocklist with alternatives**: See `../../reference/suno/artist-blocklist.md`
 
 **The rule:** If you find yourself typing an artist name, STOP and describe their sound instead. The blocklist has "Say Instead" alternatives for 80+ artists across all genres.
 
@@ -349,9 +336,9 @@ When you discover new Suno behavior or techniques, **update the reference docume
 
 | File | Update When |
 |------|-------------|
-| `${CLAUDE_PLUGIN_ROOT}/reference/suno/v5-best-practices.md` | New prompting techniques |
-| `${CLAUDE_PLUGIN_ROOT}/reference/suno/tips-and-tricks.md` | Workarounds, discoveries |
-| `${CLAUDE_PLUGIN_ROOT}/reference/suno/CHANGELOG.md` | Any Suno update |
+| `../../reference/suno/v5-best-practices.md` | New prompting techniques |
+| `../../reference/suno/tips-and-tricks.md` | Workarounds, discoveries |
+| `../../reference/suno/CHANGELOG.md` | Any Suno update |
 
 ---
 

@@ -63,7 +63,7 @@ Your custom workflow preferences are loaded in addition to base instructions.
 
 **Purpose:** Define phonetic spellings for artist names, album titles, character names, and other terms Suno might mispronounce.
 
-**Used by:** `/bitwize-music:pronunciation-specialist`
+**Used by:** the `pronunciation-specialist` skill
 
 **Merge behavior:** Merged with base guide - custom entries take precedence
 
@@ -102,7 +102,7 @@ Your custom pronunciations are merged with the base guide. If the same word appe
 
 **Purpose:** Add or remove words from the explicit content scanner.
 
-**Used by:** `/bitwize-music:explicit-checker`
+**Used by:** the `explicit-checker` skill
 
 **Merge behavior:** Additive/subtractive - add new words, remove base words
 
@@ -136,7 +136,7 @@ Your additions are added to the list. Your removals are removed from the list.
 
 **Purpose:** Define your personal lyric writing style, vocabulary preferences, and thematic focus.
 
-**Used by:** `/bitwize-music:lyric-writer`
+**Used by:** the `lyric-writer` skill
 
 **Merge behavior:** Adds context - used when writing lyrics
 
@@ -181,7 +181,7 @@ Your style preferences guide lyric creation and revision.
 
 **Purpose:** Customize Suno prompt generation with your genre mappings, vocal preferences, and avoidances.
 
-**Used by:** `/bitwize-music:suno-engineer`
+**Used by:** the `suno-engineer` skill
 
 **Merge behavior:** Adds context - used when generating style prompts
 
@@ -224,7 +224,7 @@ Your mappings and preferences are applied to style prompt generation.
 
 **Purpose:** Define your album structure preferences, track counts, and thematic focus.
 
-**Used by:** `/bitwize-music:album-conceptualizer`
+**Used by:** the `album-conceptualizer` skill
 
 **Merge behavior:** Adds context - used when planning albums
 
@@ -268,7 +268,7 @@ Your preferences guide the album conceptualization process.
 
 **Purpose:** Define your visual style guidelines for album artwork and AI art generation.
 
-**Used by:** `/bitwize-music:album-art-director`
+**Used by:** the `album-art-director` skill
 
 **Merge behavior:** Adds context - used when developing visual concepts
 
@@ -315,7 +315,7 @@ Your visual preferences guide artwork concept development.
 
 **Purpose:** Define your research standards, source priorities, and verification requirements.
 
-**Used by:** `/bitwize-music:researcher` and specialized researcher skills
+**Used by:** the `researcher` skill and specialized researcher skills
 
 **Merge behavior:** Adds context - applied to source selection and verification
 
@@ -358,7 +358,7 @@ Your source priorities and verification standards are applied.
 
 **Purpose:** Define your release workflow, QA requirements, and platform priorities.
 
-**Used by:** `/bitwize-music:release-director`
+**Used by:** the `release-director` skill
 
 **Merge behavior:** Adds context - applied to QA checklist and platform workflow
 
@@ -403,7 +403,7 @@ Your QA requirements and platform priorities are applied.
 
 **Purpose:** Override default genre presets for audio mastering with custom EQ and dynamics settings.
 
-**Used by:** `/bitwize-music:mastering-engineer`
+**Used by:** the `mastering-engineer` skill
 
 **Merge behavior:** Overrides - replaces default presets for specified genres
 
@@ -448,7 +448,7 @@ defaults:
 
 **Purpose:** Define page layout, notation preferences, and songbook formatting for sheet music generation.
 
-**Used by:** `/bitwize-music:sheet-music-publisher`
+**Used by:** the `sheet-music-publisher` skill
 
 **Merge behavior:** Adds context - applied to PDF generation and songbook creation
 
@@ -491,7 +491,7 @@ Your formatting preferences are applied to sheet music generation.
 
 **Purpose:** Define your social media copy tone, platform priorities, messaging themes, and hashtag preferences.
 
-**Used by:** `/bitwize-music:promo-writer`, `/bitwize-music:promo-director`
+**Used by:** the `promo-writer` skill the `promo-director` skill
 
 **Merge behavior:** Adds context - applied to copy generation and platform selection
 

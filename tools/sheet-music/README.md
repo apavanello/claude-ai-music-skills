@@ -193,7 +193,7 @@ python3 create_songbook.py {audio_root}/artists/bitwize/albums/electronic/sample
 
 ## Integration with Skill
 
-These scripts are called by the `/bitwize-music:sheet-music-publisher` skill, which:
+These scripts are called by the the `sheet-music-publisher` skill, which:
 1. Verifies software installation
 2. Guides user through track selection
 3. Runs transcribe.py

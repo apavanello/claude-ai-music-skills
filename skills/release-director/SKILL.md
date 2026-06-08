@@ -1,24 +1,11 @@
 ---
 name: release-director
 description: Coordinates album release including QA, distribution prep, and platform uploads. Use when mastering and album art are complete and the user is ready to release.
-argument-hint: <album-path or "release [album]">
-model: sonnet
-effort: medium
-prerequisites:
-  - mastering-engineer
-allowed-tools:
-  - Read
-  - Edit
-  - Write
-  - Grep
-  - Glob
-  - Bash
-  - bitwize-music-mcp
 ---
 
 ## Your Task
 
-**Target**: $ARGUMENTS
+**Target**: the user's input
 
 1. Run pre-release QA checklist
 2. Prepare distribution assets (distributor lyrics, metadata)
@@ -157,7 +144,7 @@ Check for custom release preferences:
 6. **File Organization** - Correct structure, naming conventions
 7. **Documentation** - README complete, generation logs filled
 8. **Explicit Content** - Flagged correctly
-9. **Promo Copy** (optional) - `promo/` directory has platform copy populated (campaign.md, twitter.md, instagram.md, etc.). Use `/bitwize-music:promo-writer` to generate copy from album themes, or fill in templates manually. Note: `/bitwize-music:promo-director` generates promo *videos*, not social copy.
+9. **Promo Copy** (optional) - `promo/` directory has platform copy populated (campaign.md, twitter.md, instagram.md, etc.). Use the `promo-writer` skill to generate copy from album themes, or fill in templates manually. Note: the `promo-director` skill generates promo *videos*, not social copy.
 
 **QA Gate**: All checks must pass before proceeding
 
@@ -169,7 +156,7 @@ Check for custom release preferences:
 3. **Album art** - Verified 3000x3000px, correct format
 4. **Track order confirmation** - Final sequencing verified
 5. **Genre classification** - distributor primary/secondary/subgenre
-6. **Social media copy** (optional) - `promo/` files populated for target platforms (use `/bitwize-music:promo-writer` to generate copy from album themes, or fill in templates manually; `/bitwize-music:promo-director` generates videos, not copy)
+6. **Social media copy** (optional) - `promo/` files populated for target platforms (use the `promo-writer` skill to generate copy from album themes, or fill in templates manually; the `promo-director` skill generates videos, not copy)
 
 ---
 

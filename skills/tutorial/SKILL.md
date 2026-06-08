@@ -1,23 +1,11 @@
 ---
 name: tutorial
 description: Provides interactive guided album creation for new users. Use when the user is new to the plugin or asks for a walkthrough of the album creation process.
-argument-hint: <new-album | resume | help>
-model: sonnet
-effort: low
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - Bash
-  - AskUserQuestion
-  - bitwize-music-mcp
 ---
 
 ## Your Task
 
-**Input**: $ARGUMENTS
+**Input**: the user's input
 
 Route based on argument:
 - `new-album` or no argument → Start guided album creation
@@ -176,7 +164,7 @@ See [phases.md](phases.md) for the complete reference.
    mkdir -p {content_root}/artists/[artist]/albums/[genre]/[album-name]/tracks
    ```
 
-2. Create album README from template (read `${CLAUDE_PLUGIN_ROOT}/templates/album.md` first)
+2. Create album README from template (read `../../templates/album.md` first)
 
 3. Tell user: "I've created the album folder at `{content_root}/artists/...`. We'll fill in the details as we go."
 

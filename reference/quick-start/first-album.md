@@ -11,8 +11,8 @@ Complete guide for creating your first album from scratch.
 Before you begin:
 
 1. **Suno account** - Sign up at [suno.com](https://suno.com)
-2. **Claude Code** - With this plugin installed
-3. **Config file** - Run `/bitwize-music:configure` if not set up
+2. **the AI coding assistant** - With this plugin installed
+3. **Config file** - Run the `configure` skill if not set up
 
 ---
 
@@ -21,7 +21,7 @@ Before you begin:
 ### Step 1: Create the Album
 
 ```
-/bitwize-music:new-album my-first-album electronic
+the `new-album` skill my-first-album electronic
 ```
 
 Replace `my-first-album` with your album name (use hyphens, lowercase).
@@ -81,7 +81,7 @@ For each track, Claude helps you write:
 - Style prompt for Suno
 - Phonetic fixes for tricky words
 
-**Tip**: Use `/bitwize-music:lyric-writer` for dedicated lyric help.
+**Tip**: Use the `lyric-writer` skill for dedicated lyric help.
 
 ### Step 3: Review Before Generation
 
@@ -102,7 +102,7 @@ Stop here until:
 - [ ] All track files created with lyrics
 - [ ] Style prompts filled in
 - [ ] Lyric review complete (no issues)
-- [ ] `/bitwize-music:explicit-checker` run (if needed)
+- [ ] the `explicit-checker` skill run (if needed)
 
 ---
 
@@ -177,7 +177,7 @@ Claude runs the mastering workflow:
 ### Step 1: Get Art Prompt
 
 ```
-/bitwize-music:album-art-director my-first-album
+the `album-art-director` skill my-first-album
 ```
 
 ### Step 2: Generate Image
@@ -187,7 +187,7 @@ Use ChatGPT/DALL-E with the prompt Claude provides.
 ### Step 3: Import Art
 
 ```
-/bitwize-music:import-art ~/Downloads/album-art.png my-first-album
+the `import-art` skill ~/Downloads/album-art.png my-first-album
 ```
 
 ---
@@ -221,15 +221,15 @@ Claude updates status to `Released` and provides upload instructions.
 
 | Task | Command |
 |------|---------|
-| Create album | `/bitwize-music:new-album name genre` |
-| Resume work | `/bitwize-music:resume album-name` |
-| Write lyrics | `/bitwize-music:lyric-writer` |
-| Review lyrics | `/bitwize-music:lyric-reviewer` |
-| Check explicit | `/bitwize-music:explicit-checker` |
-| Copy to clipboard | `/bitwize-music:clipboard track-name` |
-| Create album art | `/bitwize-music:album-art-director` |
-| Import art | `/bitwize-music:import-art path album` |
-| Validate album | `/bitwize-music:validate-album` |
+| Create album | the `new-album` skill name genre` |
+| Resume work | the `resume` skill album-name` |
+| Write lyrics | the `lyric-writer` skill |
+| Review lyrics | the `lyric-reviewer` skill |
+| Check explicit | the `explicit-checker` skill |
+| Copy to clipboard | the `clipboard` skill track-name` |
+| Create album art | the `album-art-director` skill |
+| Import art | the `import-art` skill path album` |
+| Validate album | the `validate-album` skill |
 
 ---
 
@@ -237,13 +237,13 @@ Claude updates status to `Released` and provides upload instructions.
 
 **Suno mispronounces words?**
 - Use phonetic spelling in lyrics
-- Run `/bitwize-music:pronunciation-specialist`
+- Run the `pronunciation-specialist` skill
 
 **Lost track of progress?**
-- Run `/bitwize-music:resume album-name`
+- Run the `resume` skill album-name`
 
 **Config issues?**
-- Run `/bitwize-music:configure`
+- Run the `configure` skill
 
 **Need more guidance?**
-- Run `/bitwize-music:tutorial new-album` for step-by-step walkthrough
+- Run the `tutorial` skill new-album` for step-by-step walkthrough

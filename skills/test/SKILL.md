@@ -1,19 +1,11 @@
 ---
 name: test
 description: Runs automated tests to validate plugin integrity across 14 categories. Use before creating PRs, after making changes to skills or templates, or to verify plugin health.
-argument-hint: [all | config | skills | templates | workflow | suno | research | mastering | sheet-music | release | consistency | terminology | behavior | quality | quick]
-model: haiku
-context: fork
-allowed-tools:
-  - Read
-  - Grep
-  - Glob
-  - Bash
 ---
 
 ## Your Task
 
-**Input**: $ARGUMENTS
+**Input**: the user's input
 
 Run automated tests to validate plugin integrity. Execute each test methodically and report results clearly.
 
@@ -30,19 +22,19 @@ You are the plugin's automated test runner. Execute each test, track pass/fail, 
 For fast automated validation, run the pytest suite:
 
 ```bash
-~/.bitwize-music/venv/bin/python3 -m pytest ${CLAUDE_PLUGIN_ROOT}/tests/ -v
+~/.bitwize-music/venv/bin/python3 -m pytest ../../tests/ -v
 ```
 
 This covers:
-- **plugin tests** (`tests/plugin/`) - Frontmatter, templates, references, links, terminology, consistency, config, state, genres, integration
+- **plugin tests** (`testsplugin management/`) - Frontmatter, templates, references, links, terminology, consistency, config, state, genres, integration
 - **unit tests** (`tests/unit/`) - State parsers/indexer, shared utilities, mastering functions
 
 Run specific categories:
 ```bash
-~/.bitwize-music/venv/bin/python3 -m pytest ${CLAUDE_PLUGIN_ROOT}/tests/plugin/test_skills.py -v       # Skills only
-~/.bitwize-music/venv/bin/python3 -m pytest ${CLAUDE_PLUGIN_ROOT}/tests/plugin/ -v                      # All plugin tests
-~/.bitwize-music/venv/bin/python3 -m pytest ${CLAUDE_PLUGIN_ROOT}/tests/unit/ -v                        # All unit tests
-~/.bitwize-music/venv/bin/python3 -m pytest ${CLAUDE_PLUGIN_ROOT}/tests/ -m "not slow" -v               # Skip slow tests
+~/.bitwize-music/venv/bin/python3 -m pytest ../../testsplugin management/test_skills.py -v       # Skills only
+~/.bitwize-music/venv/bin/python3 -m pytest ../../testsplugin management/ -v                      # All plugin tests
+~/.bitwize-music/venv/bin/python3 -m pytest ../../tests/unit/ -v                        # All unit tests
+~/.bitwize-music/venv/bin/python3 -m pytest ../../tests/ -m "not slow" -v               # Skip slow tests
 ```
 
 Pytest catches common issues fast. For deep behavioral tests, use the full test suite below.
@@ -121,19 +113,19 @@ For rapid validation during development, use pytest directly:
 
 ```bash
 # Run all tests
-~/.bitwize-music/venv/bin/python3 -m pytest ${CLAUDE_PLUGIN_ROOT}/tests/ -v
+~/.bitwize-music/venv/bin/python3 -m pytest ../../tests/ -v
 
 # Run specific test modules
-~/.bitwize-music/venv/bin/python3 -m pytest ${CLAUDE_PLUGIN_ROOT}/tests/plugin/test_skills.py ${CLAUDE_PLUGIN_ROOT}/tests/plugin/test_templates.py -v
+~/.bitwize-music/venv/bin/python3 -m pytest ../../testsplugin management/test_skills.py ../../testsplugin management/test_templates.py -v
 
 # Verbose with short tracebacks
-~/.bitwize-music/venv/bin/python3 -m pytest ${CLAUDE_PLUGIN_ROOT}/tests/ -v --tb=short
+~/.bitwize-music/venv/bin/python3 -m pytest ../../tests/ -v --tb=short
 
 # Quiet mode (for CI/logs)
-~/.bitwize-music/venv/bin/python3 -m pytest ${CLAUDE_PLUGIN_ROOT}/tests/ -q --tb=line
+~/.bitwize-music/venv/bin/python3 -m pytest ../../tests/ -q --tb=line
 ```
 
-Test modules in `tests/plugin/`:
+Test modules in `testsplugin management/`:
 - `test_skills.py` - Frontmatter, required fields, model validation
 - `test_templates.py` - Template existence and structure
 - `test_references.py` - Reference doc existence

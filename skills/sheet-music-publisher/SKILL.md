@@ -1,38 +1,11 @@
 ---
 name: sheet-music-publisher
 description: Converts mastered audio to sheet music and creates printable songbooks. Use after mastering when the user wants sheet music or a songbook for their album.
-argument-hint: <album-name or /path/to/track.wav>
-model: sonnet
-effort: low
-allowed-tools:
-  - Read
-  - Edit
-  - Write
-  - Grep
-  - Glob
-  - Bash
-  - bitwize-music-mcp
-requirements:
-  external:
-    - name: AnthemScore
-      purpose: Audio to sheet music transcription
-      url: https://www.lunaverus.com/
-      cost: "$42 (Professional edition recommended)"
-      notes: "Free trial available: 30 seconds per song, 100 total transcriptions"
-    - name: MuseScore
-      purpose: Sheet music editing and PDF export
-      url: https://musescore.org/
-      cost: Free (open source)
-      notes: "Required for title cleanup and manual polishing"
-  python:
-    - pypdf
-    - reportlab
-    - pyyaml
 ---
 
 ## Your Task
 
-Input: $ARGUMENTS
+Input: the user's input
 
 Guide user through sheet music generation from mastered audio:
 

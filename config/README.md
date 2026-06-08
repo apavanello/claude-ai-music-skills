@@ -124,7 +124,7 @@ The `~/.bitwize-music/` directory also contains:
 
 ### Promo Videos (`promotion:`)
 
-Settings for `/bitwize-music:promo-director` skill.
+Settings for the `promo-director` skill skill.
 
 | Setting | Required | Description |
 |---------|----------|-------------|
@@ -135,7 +135,7 @@ Settings for `/bitwize-music:promo-director` skill.
 
 ### Sheet Music (`sheet_music:`)
 
-Settings for `/bitwize-music:sheet-music-publisher` skill.
+Settings for the `sheet-music-publisher` skill skill.
 
 | Setting | Required | Description |
 |---------|----------|-------------|
@@ -144,7 +144,7 @@ Settings for `/bitwize-music:sheet-music-publisher` skill.
 
 ### Cloud Storage (`cloud:`)
 
-Settings for `/bitwize-music:cloud-uploader` skill. See `/reference/cloud/setup-guide.md` for setup.
+Settings for the `cloud-uploader` skill skill. See `/reference/cloud/setup-guide.md` for setup.
 
 | Setting | Required | Description |
 |---------|----------|-------------|

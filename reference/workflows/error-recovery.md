@@ -94,7 +94,7 @@ This document covers edge cases and recovery procedures for common workflow issu
 
 **Symptoms**: Two tracks have same content, files named wrong, or track numbers don't match content.
 
-**Prevention**: Use `/bitwize-music:import-track` skill which validates naming. Review tracklist before generation.
+**Prevention**: Use the `import-track` skill skill which validates naming. Review tracklist before generation.
 
 **Recovery Steps**:
 1. Identify correct mapping: which file should be which track
@@ -112,7 +112,7 @@ This document covers edge cases and recovery procedures for common workflow issu
 
 **Symptoms**: Generated audio sounds completely wrong for the intended style. Wrong tempo, mood, or genre.
 
-**Prevention**: Use `/bitwize-music:suno-engineer` for style prompts. Test style on one track before batch generation.
+**Prevention**: Use the `suno-engineer` skill for style prompts. Test style on one track before batch generation.
 
 **Recovery Steps**:
 1. Document what went wrong in Generation Log
@@ -155,7 +155,7 @@ This document covers edge cases and recovery procedures for common workflow issu
 1. Check rejection reason (dimensions, file size, content policy)
 2. Regenerate with correct specs using art director prompt
 3. Save new art with version number: `album-art-v2.jpg`
-4. Use `/bitwize-music:import-art` to place in correct locations
+4. Use the `import-art` skill to place in correct locations
 5. Update album README if art prompt was revised
 6. Re-upload to platforms
 
@@ -177,7 +177,7 @@ This document covers edge cases and recovery procedures for common workflow issu
    - Audio: `{audio_root}/artists/{artist}/albums/{genre}/{album}/`
    - Documents: `{documents_root}/artists/{artist}/albums/{genre}/{album}/`
 4. Verify no broken references in track files
-5. Run `/bitwize-music:validate-album` to confirm structure
+5. Run the `validate-album` skill to confirm structure
 
 **When to Delete vs Revert**: Move files, don't delete. Only delete after confirming files are in correct location.
 
@@ -206,7 +206,7 @@ This document covers edge cases and recovery procedures for common workflow issu
 
 **Symptoms**: Generated audio has mispronounced names, homographs read wrong, or acronyms spoken as words.
 
-**Prevention**: ALWAYS run `/bitwize-music:pronunciation-specialist` before generation. Check homographs (live, lead, read, wind, tear, bass, close).
+**Prevention**: ALWAYS run the `pronunciation-specialist` skill before generation. Check homographs (live, lead, read, wind, tear, bass, close).
 
 **Recovery Steps**:
 1. Identify all mispronounced words in the track
@@ -246,7 +246,7 @@ For major disasters (data loss, corrupted files, accidental mass deletion):
 ### When All Else Fails
 1. Export what you can (lyrics from track files, notes from READMEs)
 2. Document what was lost
-3. Start fresh with `/bitwize-music:new-album`
+3. Start fresh with the `new-album` skill
 4. Import salvaged content
 
 ---
@@ -297,7 +297,7 @@ Sometimes a fresh start is better than fixing. Consider starting over when:
 
 ### How to Start Over Cleanly
 1. Rename old album directory: `album-name` → `album-name-OLD`
-2. Create fresh album: `/bitwize-music:new-album album-name genre`
+2. Create fresh album: the `new-album` skill album-name genre`
 3. Salvage what works from OLD version (copy specific content)
 4. Delete OLD directory only after new album is complete
 5. Document lessons learned for future reference

@@ -1,22 +1,13 @@
 ---
 name: validate-album
 description: Validates album directory structure, file locations, and content integrity. Use before release or whenever the user wants to check an album's structural health.
-argument-hint: <album-name>
-model: haiku
-context: fork
-allowed-tools:
-  - Read
-  - Bash
-  - Glob
-  - Grep
-  - bitwize-music-mcp
 ---
 
 # Album Validator Agent
 
 ## Your Task
 
-**Input**: $ARGUMENTS (album name, e.g., `sample-album`)
+**Input**: the user's input (album name, e.g., `sample-album`)
 
 Validate that an album has all required files in the correct locations, catching path issues and missing content before they become problems.
 

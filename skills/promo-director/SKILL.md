@@ -1,26 +1,6 @@
 ---
 name: promo-director
 description: Generates 15-second vertical promo videos for social media from mastered audio. Use after mastering is complete and before release, when the user wants social media content.
-model: sonnet
-effort: low
-prerequisites:
-  - mastering-engineer
-  - album-art-director
-allowed-tools:
-  - Read
-  - Bash
-  - Glob
-  - bitwize-music-mcp
-requirements:
-  external:
-    - name: ffmpeg
-      purpose: Video generation and audio visualization
-      install: "brew install ffmpeg (macOS) or apt install ffmpeg (Linux)"
-      notes: "Requires showwaves, showfreqs, drawtext, gblur filters"
-  python:
-    - pillow
-    - librosa
-    - pyyaml
 ---
 
 # Promo Director Skill
@@ -74,7 +54,7 @@ After installing, run this command again.
 
 **Check Python dependencies:**
 
-Call `get_python_command()` to verify the venv exists. If `venv_exists` is false, show the warning and suggest `/bitwize-music:setup`.
+Call `get_python_command()` to verify the venv exists. If `venv_exists` is false, show the warning and suggest the `setup` skill
 
 ### 2. Album Detection
 
@@ -95,7 +75,7 @@ Error: No album artwork found in {audio_root}/artists/{artist}/albums/{genre}/{a
 Expected: album.png or album.jpg
 
 Options:
-  1. Use /bitwize-music:import-art to place artwork
+  1. Use the `import-art` skill to place artwork
   2. Specify path manually: --artwork /path/to/art.png
 
 Which option?
@@ -222,8 +202,8 @@ Common issues:
 1. Review videos: Open promo_videos/ folder
 2. Test on phone: Transfer one video and verify quality
 3. Populate social copy: Fill in promo/ templates (twitter.md, instagram.md, etc.)
-4. [Optional] Upload to cloud: /bitwize-music:cloud-uploader {album}
-5. Ready for release workflow: /bitwize-music:release-director {album}
+4. [Optional] Upload to cloud: the `cloud-uploader` skill {album}
+5. Ready for release workflow: the `release-director` skill {album}
 ```
 
 

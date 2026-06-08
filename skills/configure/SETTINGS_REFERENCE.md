@@ -1,6 +1,6 @@
 # Configure Skill - Settings Reference
 
-Quick lookup for all configuration options. Full documentation: [${CLAUDE_PLUGIN_ROOT}/config/README.md](${CLAUDE_PLUGIN_ROOT}/config/README.md).
+Quick lookup for all configuration options. Full documentation: [../../config/README.md](../../config/README.md).
 
 ---
 
@@ -69,7 +69,7 @@ Currently only Suno is supported.
 
 ### Promo Videos (`promotion:`)
 
-For `/bitwize-music:promo-director`:
+For the `promo-director` skill
 
 | Setting | Description | Default |
 |---------|-------------|---------|
@@ -82,7 +82,7 @@ For `/bitwize-music:promo-director`:
 
 ### Sheet Music (`sheet_music:`)
 
-For `/bitwize-music:sheet-music-publisher`:
+For the `sheet-music-publisher` skill
 
 | Setting | Description | Default |
 |---------|-------------|---------|
@@ -93,7 +93,7 @@ For `/bitwize-music:sheet-music-publisher`:
 
 ### Cloud Storage (`cloud:`)
 
-For `/bitwize-music:cloud-uploader`:
+For the `cloud-uploader` skill
 
 | Setting | Description |
 |---------|-------------|
@@ -101,7 +101,7 @@ For `/bitwize-music:cloud-uploader`:
 | `cloud.provider` | `r2` or `s3` |
 | `cloud.public_read` | Make uploads public |
 
-Provider-specific keys documented in [${CLAUDE_PLUGIN_ROOT}/reference/cloud/setup-guide.md](${CLAUDE_PLUGIN_ROOT}/reference/cloud/setup-guide.md).
+Provider-specific keys documented in [../../reference/cloud/setup-guide.md](../../reference/cloud/setup-guide.md).
 
 ---
 
@@ -109,16 +109,16 @@ Provider-specific keys documented in [${CLAUDE_PLUGIN_ROOT}/reference/cloud/setu
 
 ```bash
 # Show current config
-/bitwize-music:configure show
+the `configure` skill show
 
 # Edit a specific setting
-/bitwize-music:configure edit
+the `configure` skill edit
 
 # Validate config for issues
-/bitwize-music:configure validate
+the `configure` skill validate
 
 # Start fresh
-/bitwize-music:configure reset
+the `configure` skill reset
 ```
 
 ---
@@ -139,12 +139,12 @@ paths:
 
 ### Full Config
 
-See [${CLAUDE_PLUGIN_ROOT}/config/config.example.yaml](${CLAUDE_PLUGIN_ROOT}/config/config.example.yaml) for complete example with all options.
+See [../../config/config.example.yaml](../../config/config.example.yaml) for complete example with all options.
 
 ---
 
 ## See Also
 
 - [SKILL.md](SKILL.md) - Full skill documentation
-- [${CLAUDE_PLUGIN_ROOT}/config/README.md](${CLAUDE_PLUGIN_ROOT}/config/README.md) - Complete config reference with examples
-- [${CLAUDE_PLUGIN_ROOT}/config/config.example.yaml](${CLAUDE_PLUGIN_ROOT}/config/config.example.yaml) - Example config file
+- [../../config/README.md](../../config/README.md) - Complete config reference with examples
+- [../../config/config.example.yaml](../../config/config.example.yaml) - Example config file

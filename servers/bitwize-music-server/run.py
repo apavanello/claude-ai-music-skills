@@ -34,9 +34,12 @@ if VENV_PYTHON.exists():
 else:
     python_cmd = sys.executable
 
-# Set CLAUDE_PLUGIN_ROOT if not already set (derive from file location)
+# Set BITWIZE_PLUGIN_ROOT if not already set (derive from file location)
+# Also set CLAUDE_PLUGIN_ROOT for backward compatibility
+plugin_root = SCRIPT_DIR.parent.parent
+if "BITWIZE_PLUGIN_ROOT" not in os.environ:
+    os.environ["BITWIZE_PLUGIN_ROOT"] = str(plugin_root)
 if "CLAUDE_PLUGIN_ROOT" not in os.environ:
-    plugin_root = SCRIPT_DIR.parent.parent
     os.environ["CLAUDE_PLUGIN_ROOT"] = str(plugin_root)
 
 # Execute the server with the selected Python

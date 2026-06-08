@@ -1,20 +1,11 @@
 ---
 name: album-dashboard
 description: Shows a structured progress dashboard for an album with percentage complete per phase, blocking items, and status breakdown. Use for a quick visual overview of album progress.
-argument-hint: <album-name>
-model: haiku
-prerequisites:
-  - resume
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - bitwize-music-mcp
 ---
 
 ## Your Task
 
-**Input**: $ARGUMENTS (album name)
+**Input**: the user's input (album name)
 
 Generate a structured progress dashboard for the specified album.
 

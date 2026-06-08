@@ -1,16 +1,6 @@
 ---
 name: session-start
 description: Runs the session startup procedure - verifies setup, loads config and state, checks skill models, and reports project status. Use at the beginning of a fresh session.
-model: sonnet
-effort: low
-allowed-tools:
-  - Read
-  - Bash
-  - Glob
-  - Grep
-  - WebSearch
-  - WebFetch
-  - bitwize-music-mcp
 ---
 
 ## Your Task
@@ -33,8 +23,8 @@ Quick dependency check:
 ~/.bitwize-music/venv/bin/python3 -c "import mcp" 2>&1 >/dev/null && echo "MCP ready" || echo "MCP missing"
 ```
 
-- If MCP missing: **Stop immediately** and suggest: `/bitwize-music:setup mcp`
-- If config missing (`~/.bitwize-music/config.yaml` doesn't exist): suggest `/bitwize-music:configure`
+- If MCP missing: **Stop immediately** and suggest: the `setup` skill mcp`
+- If config missing (`~/.bitwize-music/config.yaml` doesn't exist): suggest the `configure` skill
 - Don't proceed until setup is complete
 
 ## Step 1.5: Health Check
@@ -44,7 +34,7 @@ Use the `health_check` MCP tool (checks venv packages + skill registration in on
 **Venv results** (from `result.venv`):
 - `status: "ok"` → continue silently
 - `status: "stale"` → warn with mismatches and fix command, continue session
-- `status: "no_venv"` → **stop** and suggest `/bitwize-music:setup`
+- `status: "no_venv"` → **stop** and suggest the `setup` skill
 - `status: "error"` → warn and continue
 
 **Skill registration results** (from `result.skills`):
@@ -56,7 +46,7 @@ Use the `health_check` MCP tool (checks venv packages + skill registration in on
 
 Read `~/.bitwize-music/config.yaml`.
 
-If missing, tell user to run `/bitwize-music:configure`.
+If missing, tell user to run the `configure` skill
 
 ## Step 3: Load Overrides
 
@@ -77,12 +67,12 @@ Read `~/.bitwize-music/cache/state.json`:
 
 ## Step 4.5: Check for Plugin Upgrades
 
-Compare `plugin_version` in state.json against current version in `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json`:
+Compare `plugin_version` in state.json against current version in `../../.claude-pluginplugin management.json`:
 
 1. **If `plugin_version` is null** (first run or pre-upgrade-system): Set to current version, skip migrations
 2. **If versions match**: No action needed
 3. **If stored < current** (upgrade detected):
-   - Read migration files from `${CLAUDE_PLUGIN_ROOT}/migrations/` for versions between stored and current
+   - Read migration files from `../../migrations/` for versions between stored and current
    - Process actions in order:
      - `auto`: Execute silently (run `check` first — skip if returns 0)
      - `action`: Show description, ask user to confirm before executing
@@ -93,7 +83,7 @@ Compare `plugin_version` in state.json against current version in `${CLAUDE_PLUG
 
 ## Step 5: (Removed)
 
-Skill model checking is no longer part of session start. Skills use tier aliases (`opus`/`sonnet`/`haiku`) that auto-track the frontier model, and the test suite (`/bitwize-music:test`) enforces model/effort hygiene — so no manual model checking is needed when new Claude models are released.
+Skill model checking is no longer part of session start. Skills use tier aliases (`opus`/`sonnet`/`haiku`) that auto-track the frontier model, and the test suite (the `test` skill enforces model/effort hygiene — so no manual model checking is needed when new Claude models are released.
 
 ## Step 6: Report From State Cache
 
@@ -126,20 +116,20 @@ Based on state, show ONE relevant tip:
 
 | Condition | Tip |
 |-----------|-----|
-| No albums exist | "Try `/bitwize-music:tutorial` to create your first album" |
-| Ideas exist but no albums | "You have album ideas! Use `/bitwize-music:album-ideas list` to review them" |
-| In-progress albums exist | "Resume where you left off: `/bitwize-music:resume <album-name>`" |
+| No albums exist | "Try the `tutorial` skill to create your first album" |
+| Ideas exist but no albums | "You have album ideas! Use the `album-ideas` skill list` to review them" |
+| In-progress albums exist | "Resume where you left off: the `resume` skill <album-name>`" |
 | Overrides loaded | "Custom overrides loaded from {overrides}/" |
 | Overrides missing | "Customize your workflow with override files — see `/reference/overrides/`" |
 | Pending verifications | "Source verification needed before generation can proceed" |
 
 Also show one random general tip (rotate through these):
 - "Ask 'what should I do next?' for workflow guidance"
-- "Use `/bitwize-music:resume` to quickly jump back into an album"
+- "Use the `resume` skill to quickly jump back into an album"
 - "The researcher skill coordinates 10 specialized sub-skills for deep research"
 - "Check pronunciation before generating — Suno can't infer from context"
-- "Use `/bitwize-music:clipboard` to copy lyrics/prompts for Suno"
-- "Master your audio with `/bitwize-music:mastering-engineer` for professional results"
+- "Use the `clipboard` skill to copy lyrics/prompts for Suno"
+- "Master your audio with the `mastering-engineer` skill for professional results"
 
 ## Step 8: Ask
 

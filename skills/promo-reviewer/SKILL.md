@@ -1,15 +1,6 @@
 ---
 name: promo-reviewer
 description: Reviews and iterates on social media copy in album promo/ files. Use after populating promo templates and before release to polish platform-specific posts.
-argument-hint: <album-name> [platform]
-model: sonnet
-effort: medium
-allowed-tools:
-  - Read
-  - Edit
-  - Glob
-  - Grep
-  - bitwize-music-mcp
 ---
 
 # Promo Reviewer Skill
@@ -22,7 +13,7 @@ After promo templates are populated with platform-specific copy, this skill prov
 
 ## When to Use
 
-- After `/bitwize-music:promo-writer` generates initial copy
+- After the `promo-writer` skill generates initial copy
 - After populating promo/ templates (manually or during release prep)
 - Before release — final polish pass on social media copy
 - User says "review promo copy" or "polish the twitter posts for [album]"
@@ -48,7 +39,7 @@ Between populating promo templates and release-director.
 
 **Resolve the album from arguments:**
 
-Use MCP `find_album` with the album name from `$ARGUMENTS`. If no album specified, check `get_session` for last album context.
+Use MCP `find_album` with the album name from `the user's input`. If no album specified, check `get_session` for last album context.
 
 **Locate promo directory:**
 ```
@@ -80,7 +71,7 @@ If no promo files are populated:
 No promo copy found to review.
 
 Options:
-1. Generate promo copy: /bitwize-music:promo-writer <album-name>
+1. Generate promo copy: the `promo-writer` skill <album-name>
 2. Populate promo templates manually (fill in promo/ files)
 3. Skip promo review and proceed to release
 ```
@@ -226,7 +217,7 @@ Files updated:
 Next steps:
   1. Review any skipped posts if needed
   2. Add streaming links when available (replace [Streaming Link] placeholders)
-  3. Ready for release: /bitwize-music:release-director <album>
+  3. Ready for release: the `release-director` skill <album>
 ```
 
 ---

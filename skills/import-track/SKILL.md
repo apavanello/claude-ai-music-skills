@@ -1,18 +1,11 @@
 ---
 name: import-track
 description: Moves track markdown files to the correct album location. Use when the user has track files in Downloads or other locations that need to be placed in an album.
-argument-hint: <file-path> <album-name> [track-number]
-model: haiku
-allowed-tools:
-  - Read
-  - Bash
-  - Glob
-  - bitwize-music-mcp
 ---
 
 ## Your Task
 
-**Input**: $ARGUMENTS
+**Input**: the user's input
 
 Import a track markdown file (.md) to the correct album location based on config.
 

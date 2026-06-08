@@ -14,7 +14,7 @@ Comprehensive reference for terms used in the bitwize-music plugin. Alphabetized
 | **Documents Root** | Directory for PDFs and primary source documents too large for git. Mirrors content root structure. | `~/bitwize-music/documents/artists/bitwize/albums/electronic/sample-album/` |
 | **Override** | User-created file that customizes plugin behavior without modifying plugin files. Survives plugin updates. | `{overrides}/CLAUDE.md`, `{overrides}/pronunciation-guide.md` |
 | **Plugin Root** | Directory where the plugin code lives. Contains skills, templates, reference docs, and tools. | `~/.claude/plugins/bitwize-music` |
-| **Skill** | A slash command that invokes specialized functionality. Each skill has its own SKILL.md documentation. | `/bitwize-music:lyric-writer`, `/bitwize-music:researcher` |
+| **Skill** | A slash command that invokes specialized functionality. Each skill has its own SKILL.md documentation. | the `lyric-writer` skill the `researcher` skill |
 | **Tools Root** | Directory for shared tools, virtual environments, and cache. Always at `~/.bitwize-music`. | `~/.bitwize-music/venv/` |
 
 ---
@@ -87,13 +87,13 @@ Comprehensive reference for terms used in the bitwize-music plugin. Alphabetized
 | Term | Definition | Example |
 |------|------------|---------|
 | **Citation** | Reference to a source with clickable URL. Required for all claims in true-story albums. | `[PBS Documentary](https://pbs.org/...)` |
-| **Document Hunter** | Skill for automated browser-based document search from free public archives using Playwright. | `/bitwize-music:document-hunter "SEC filing Tesla 2020"` |
+| **Document Hunter** | Skill for automated browser-based document search from free public archives using Playwright. | the `document-hunter` skill "SEC filing Tesla 2020"` |
 | **Primary Source** | Direct evidence: court documents, official statements, subject's own words. Highest reliability. | Indictment, tweet from subject, press release |
 | **RESEARCH.md** | File in album directory containing detailed research notes and findings for true-story albums. | `{album}/RESEARCH.md` |
 | **Secondary Source** | Reporting about primary sources: journalism, analysis, Wikipedia summaries. Lower reliability. | News article, book about the event |
 | **Source Hierarchy** | Priority order for source trustworthiness: Court documents > Government > Journalism > News > Wikipedia. | Court docs carry more weight than news |
 | **SOURCES.md** | File in album directory listing all sources with URLs and verification status for true-story albums. | `{album}/SOURCES.md` |
-| **Specialized Researcher** | Domain-specific research skills for deep investigation: legal, gov, tech, journalism, security, financial, historical, biographical, primary-source, verifier. | `/bitwize-music:researchers-legal` |
+| **Specialized Researcher** | Domain-specific research skills for deep investigation: legal, gov, tech, journalism, security, financial, historical, biographical, primary-source, verifier. | the `researchers-legal` skill |
 | **Verification Status** | Whether a source has been confirmed by human review: Pending or Verified (with date). | `Status: Verified (2025-01-15)` |
 
 ---

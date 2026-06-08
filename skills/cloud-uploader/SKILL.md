@@ -1,17 +1,6 @@
 ---
 name: cloud-uploader
 description: Uploads promo videos and content to Cloudflare R2 or AWS S3. Use when the user wants to host promo content for social media or distribution.
-model: sonnet
-effort: low
-prerequisites:
-  - promo-director
-allowed-tools:
-  - Read
-  - Bash
-  - Glob
-requirements:
-  python:
-    - boto3
 ---
 
 # Cloud Uploader Skill
@@ -20,7 +9,7 @@ Upload promo videos and other album content to cloud storage (Cloudflare R2 or A
 
 ## Purpose
 
-After generating promo videos with `/bitwize-music:promo-director`, upload them to cloud storage for:
+After generating promo videos with the `promo-director` skill upload them to cloud storage for:
 - Hosting on websites
 - Sharing via direct links
 - CDN distribution
@@ -67,11 +56,11 @@ cloud:
     bucket: "promo-videos"
 ```
 
-See `${CLAUDE_PLUGIN_ROOT}/reference/cloud/setup-guide.md` for detailed setup instructions.
+See `../../reference/cloud/setup-guide.md` for detailed setup instructions.
 
 ### Required Files
 
-- Promo videos generated (run `/bitwize-music:promo-director` first)
+- Promo videos generated (run the `promo-director` skill first)
 - Located at: `{audio_root}/artists/{artist}/albums/{genre}/{album}/promo_videos/`
 - Album sampler at: `{audio_root}/artists/{artist}/albums/{genre}/{album}/album_sampler.mp4`
 
@@ -79,7 +68,7 @@ See `${CLAUDE_PLUGIN_ROOT}/reference/cloud/setup-guide.md` for detailed setup in
 
 ```bash
 # If using the shared venv (recommended)
-~/.bitwize-music/venv/bin/pip install -r ${CLAUDE_PLUGIN_ROOT}/requirements.txt
+~/.bitwize-music/venv/bin/pip install -r ../../requirements.txt
 
 # Or install separately
 pip install boto3
@@ -111,7 +100,7 @@ If missing:
 ```
 Error: Promo videos not found.
 
-Generate with: /bitwize-music:promo-director {album}
+Generate with: the `promo-director` skill {album}
 ```
 
 ### 2. Get Python Command
@@ -188,7 +177,7 @@ $PYTHON "$PLUGIN_DIR/tools/cloud/upload_to_cloud.py" {album} --public
 **Next Steps:**
 1. Verify files in cloud dashboard
 2. If public: Test URLs work
-3. Continue to release: /bitwize-music:release-director {album}
+3. Continue to release: the `release-director` skill {album}
 ```
 
 ## Upload Path Structure
@@ -235,29 +224,29 @@ Files are organized in the bucket as:
 
 **Basic upload:**
 ```
-/bitwize-music:cloud-uploader my-album
+the `cloud-uploader` skill my-album
 ```
 
 **Preview only:**
 ```
-/bitwize-music:cloud-uploader my-album --dry-run
+the `cloud-uploader` skill my-album --dry-run
 ```
 
 **Upload promos only:**
 ```
-/bitwize-music:cloud-uploader my-album --type promos
+the `cloud-uploader` skill my-album --type promos
 ```
 
 **Upload with public access:**
 ```
-/bitwize-music:cloud-uploader my-album --public
+the `cloud-uploader` skill my-album --public
 ```
 
 ## Error Handling
 
 **"Cloud uploads not enabled"**
 - Add `cloud.enabled: true` to config
-- See `${CLAUDE_PLUGIN_ROOT}/reference/cloud/setup-guide.md`
+- See `../../reference/cloud/setup-guide.md`
 
 **"Credentials not configured"**
 - Add credentials to config file
@@ -269,7 +258,7 @@ Files are organized in the bucket as:
 - Verify artist name in config matches
 
 **"No files found to upload"**
-- Generate promo videos first: `/bitwize-music:promo-director {album}`
+- Generate promo videos first: the `promo-director` skill {album}`
 
 **"Access Denied"**
 - Check credentials are correct
@@ -298,7 +287,7 @@ After promo generation:
 ```
 Promo videos generated successfully.
 
-**Optional:** Upload to cloud storage: /bitwize-music:cloud-uploader {album}
+**Optional:** Upload to cloud storage: the `cloud-uploader` skill {album}
 ```
 
 ### Handoff TO
@@ -309,7 +298,7 @@ After cloud upload:
 ```
 Cloud upload complete.
 
-Ready for release workflow: /bitwize-music:release-director {album}
+Ready for release workflow: the `release-director` skill {album}
 ```
 
 ## Supported Providers
@@ -340,9 +329,9 @@ Ready for release workflow: /bitwize-music:release-director {album}
 
 ## Related Documentation
 
-- `${CLAUDE_PLUGIN_ROOT}/reference/cloud/setup-guide.md` - Detailed setup instructions
-- `${CLAUDE_PLUGIN_ROOT}/skills/promo-director/SKILL.md` - Generate promo videos
-- `${CLAUDE_PLUGIN_ROOT}/skills/release-director/SKILL.md` - Release workflow
+- `../../reference/cloud/setup-guide.md` - Detailed setup instructions
+- `../../skills/promo-director/SKILL.md` - Generate promo videos
+- `../../skills/release-director/SKILL.md` - Release workflow
 
 ## Model Recommendation
 
