@@ -9,6 +9,10 @@ AI music generation workflow for [Suno](https://suno.com). This plugin provides 
 
 ## Install
 
+**For Hermes Agent (by Nous Research):**  
+See [HERMES_AGENT_INSTALL.md](HERMES_AGENT_INSTALL.md) for the correct integration steps.
+
+**For Antigravity IDE / Gemini Developer Tools:**  
 This plugin is installed at `~/.gemini/config/plugins/bitwize-music-plugin/`.
 
 ### MCP Server Setup
